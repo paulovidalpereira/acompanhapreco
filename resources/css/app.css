@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-field {display: block;}
+.form-label {display: block;}
+.form-input {border: 1px solid #000;}
+
+.btn {@apply text-sm font-medium rounded-sm text-white bg-indigo-600 p-2}
