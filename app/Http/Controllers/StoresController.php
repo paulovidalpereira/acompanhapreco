@@ -27,7 +27,7 @@ class StoresController extends Controller
         ]);
 
         $store = new Store;
-        $store->fill($request->all())->save();
+        $store->fill($request->only('name', 'url', 'class'))->save();
 
         return redirect('stores');
     }
