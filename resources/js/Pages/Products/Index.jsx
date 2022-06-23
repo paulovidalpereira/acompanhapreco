@@ -1,6 +1,7 @@
 import React from 'react';
 import App from '@/Layouts/App';
 import { Head, Link } from '@inertiajs/inertia-react';
+import { Pagination} from '@/Components/Pagination';
 
 export default function Index(props) {
     const { products: page } = props;
@@ -13,32 +14,37 @@ export default function Index(props) {
                 <div>
                     <Link  href={route('products.create')} method="get" class="btn">Novo Produto</Link>
                 </div>
+                <div className="flex">
+                    <Pagination page={page} />    
+                </div>
             </div>}
         >
             <Head title="Produtos" />
             <div className="bg-white overflow-hidden shadow-sm">
-                <table className="w-full">
+                <table>
                     <thead>
                         <tr>
-                            <td>Produto</td>
-                            <td>URL</td>
-                            <td>Loja</td>
-                            <td></td>
+                            <th>Produto</th>
+                            <th>URL</th>
+                            <th>Loja</th>
+                            <th></th>
                         </tr>
                     </thead>
+                    <tbody>
                     {page.data.map(product => {
                         return (
                             <tr>
                                 <td>{product.name}</td>
                                 <td>{product.url}</td>
                                 <td>{product.store.name}</td>
-                                <td>
+                                <td className="actions">
                                     <Link  href={route('products.edit', product.id)} method="get" class="btn">Editar</Link>
                                     <Link  href={route('products.destroy', product.id)} method="delete" class="btn">Excluir</Link>
                                 </td>
                             </tr>
                         )
                     })}
+                    </tbody>
                 </table>
             </div>
         </App>

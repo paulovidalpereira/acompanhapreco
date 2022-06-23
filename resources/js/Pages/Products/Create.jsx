@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import App from '@/Layouts/App';
-import { Head } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 
 export default function Create(props) {
@@ -58,6 +58,7 @@ export default function Create(props) {
                         </div>
                         <div>
                             <button type="submit" className="btn">Salvar</button>
+                            <Link href={route('products.index')} method="get" className="btn">Cancelar</Link>
                         </div>
                     </form>
                 </div>
