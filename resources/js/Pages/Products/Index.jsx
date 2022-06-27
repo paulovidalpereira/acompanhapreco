@@ -14,9 +14,6 @@ export default function Index(props) {
                 <div>
                     <Link  href={route('products.create')} method="get" class="btn">Novo Produto</Link>
                 </div>
-                <div className="flex">
-                    <Pagination page={page} />    
-                </div>
             </div>}
         >
             <Head title="Produtos" />

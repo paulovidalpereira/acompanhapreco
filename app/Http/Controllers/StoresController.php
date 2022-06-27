@@ -9,8 +9,9 @@ class StoresController extends Controller
 {
     public function index()
     {
-        $stores = Store::paginate();
-        return Inertia::render('Stores/Index', ['stores' => $stores]);
+        $stores = Store::orderBy('created_at', 'desc')->paginate();
+
+        return Inertia::render('Stores/Index', compact('stores'));
     }
 
     public function create()
@@ -27,6 +28,29 @@ class StoresController extends Controller
         ]);
 
         $store = new Store;
+
+        $store->fill($request->only('name', 'url', 'class'))->save();
+
+        return redirect('stores');
+    }
+
+    public function edit($id)
+    {
+        $store = Store::findOrFail($id);
+
+        return Inertia::render('Stores/Update', compact('store'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'url' => 'required',
+            'class' => 'required',
+        ]);
+
+        $store = Store::findOrFail($id);
+        
         $store->fill($request->only('name', 'url', 'class'))->save();
 
         return redirect('stores');
