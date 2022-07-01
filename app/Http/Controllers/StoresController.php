@@ -29,8 +29,6 @@ class StoresController extends Controller
             'dir' => ['in:asc,desc'],
         ]);
 
-        $sortDir[request()->get('sort')] = request()->get('dir');
-
         $stores = Store::query()
             ->when(request()->has(['sort', 'dir']), function ($query) {
                 $query->orderBy(request()->get('sort'), request()->get('dir'));
@@ -40,7 +38,7 @@ class StoresController extends Controller
             ->paginate()
             ->withQueryString();
 
-        return Inertia::render('Stores/Index', compact('stores', 'columns', 'sortDir'));
+        return Inertia::render('Stores/Index', compact('stores', 'columns'));
     }
 
     public function create()

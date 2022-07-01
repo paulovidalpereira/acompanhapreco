@@ -47,6 +47,7 @@ export default function Index(props) {
                             Nova Loja
                         </Link>
                     </div>
+                    <input type="text" />
                 </div>
             }
         >

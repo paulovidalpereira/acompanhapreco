@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { FiEdit2, FiX } from "react-icons/fi";
+import { BiSort, BiSortDown, BiSortUp } from "react-icons/bi";
 import { Pagination } from "@/Components/Pagination";
 
-export default function DataGrid({ columns, page, sortDir, lineActions }) {
+export default function DataGrid({ columns, page, lineActions }) {
     return (
         <>
             <div className="flex justify-between items-center">
@@ -37,7 +38,41 @@ export default function DataGrid({ columns, page, sortDir, lineActions }) {
                     <tr>
                         {columns.map((col) => (
                             <td key={col.id}>
-                                <Link href={route('stores.index')} data={{sort: col.id, dir: (sortDir[col.id] && sortDir[col.id] === 'asc') ? 'desc' : 'asc'}}>{col.label} {sortDir[col.id] && sortDir[col.id] === 'asc' ? "+" : "-"}</Link>
+                                <span>{col.label}</span>
+                                {route().params.sort === col.id &&
+                                    route().params.dir === "asc" && (
+                                        <Link
+                                            className="btn"
+                                            href={route("stores.index")}
+                                            data={{ sort: col.id, dir: "desc" }}
+                                        >
+                                            <BiSortDown />
+                                        </Link>
+                                    )}
+                                {route().params.sort === col.id &&
+                                    route().params.dir === "desc" && (
+                                        <Link
+                                            className="btn"
+                                            href={route("stores.index")}
+                                            data={{ sort: col.id, dir: "asc" }}
+                                        >
+                                            <BiSortUp />
+                                        </Link>
+                                    )}
+                                {route().params.sort !== col.id && (
+                                    <Link
+                                        className="btn"
+                                        href={route("stores.index")}
+                                        data={{ sort: col.id, dir: "asc" }}
+                                    >
+                                        <BiSort
+                                            style={{
+                                                width: "16px",
+                                                height: "16px",
+                                            }}
+                                        />
+                                    </Link>
+                                )}
                             </td>
                         ))}
                         {lineActions && <td className="actions"></td>}
@@ -48,9 +83,13 @@ export default function DataGrid({ columns, page, sortDir, lineActions }) {
                         <tr key={item.id}>
                             {columns.map((col) => {
                                 if (col.Cell) {
-                                    return <td key={col.id}>{col.Cell(item[col.id])}</td>
+                                    return (
+                                        <td key={col.id}>
+                                            {col.Cell(item[col.id])}
+                                        </td>
+                                    );
                                 }
-                                return <td key={col.id}>{item[col.id]}</td>
+                                return <td key={col.id}>{item[col.id]}</td>;
                             })}
                             {lineActions && (
                                 <td className="actions">

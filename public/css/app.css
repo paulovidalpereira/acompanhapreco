@@ -820,6 +820,9 @@ select {
 .min-h-screen {
   min-height: 100vh;
 }
+.min-h-full {
+  min-height: 100%;
+}
 .w-5 {
   width: 1.25rem;
 }
@@ -1292,7 +1295,13 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-svg {display: inline-block;}
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+svg {
+	display: inline-block;
+}
 
 .form-field {
   margin-bottom: 0.5rem;
@@ -1414,7 +1423,9 @@ table tbody tr:hover {
 table tbody td {
   border-top-width: 1px;
 }
-table .actions {width: 200px;}
+table .actions {
+	width: 200px;
+}
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
