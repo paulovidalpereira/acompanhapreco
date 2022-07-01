@@ -42,7 +42,7 @@ export default function Index(props) {
                         <Link
                             href={route("stores.create")}
                             method="get"
-                            className="btn"
+                            className="btn btn--primary"
                         >
                             Nova Loja
                         </Link>

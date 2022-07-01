@@ -46,7 +46,12 @@ export default function DataGrid({ columns, page, lineActions }) {
                                             href={route("stores.index")}
                                             data={{ sort: col.id, dir: "desc" }}
                                         >
-                                            <BiSortDown />
+                                            <BiSortDown
+                                                style={{
+                                                    width: "16px",
+                                                    height: "16px",
+                                                }}
+                                            />
                                         </Link>
                                     )}
                                 {route().params.sort === col.id &&
@@ -56,7 +61,12 @@ export default function DataGrid({ columns, page, lineActions }) {
                                             href={route("stores.index")}
                                             data={{ sort: col.id, dir: "asc" }}
                                         >
-                                            <BiSortUp />
+                                            <BiSortUp
+                                                style={{
+                                                    width: "16px",
+                                                    height: "16px",
+                                                }}
+                                            />
                                         </Link>
                                     )}
                                 {route().params.sort !== col.id && (
