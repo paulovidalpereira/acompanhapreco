@@ -2,9 +2,10 @@ import React from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { FiEdit2, FiX } from "react-icons/fi";
 import { BiSort, BiSortDown, BiSortUp } from "react-icons/bi";
+import { BiIcon } from "@/Components/BiIcon";
 import { Pagination } from "@/Components/Pagination";
 
-export default function DataGrid({ columns, page, lineActions }) {
+export default function DataGrid({ columns, page, lineActions, dataKey }) {
     return (
         <>
             <div className="flex justify-between items-center">
@@ -14,6 +15,7 @@ export default function DataGrid({ columns, page, lineActions }) {
                         href={page.prev_page_url}
                         className="btn"
                         disabled={page.current_page === 1}
+                        only={[dataKey]}
                     >
                         {"<"}
                     </Link>{" "}
@@ -22,6 +24,7 @@ export default function DataGrid({ columns, page, lineActions }) {
                         href={page.next_page_url}
                         className="btn"
                         disabled={page.current_page === page.last_page}
+                        only={[dataKey]}
                     >
                         {">"}
                     </Link>{" "}
@@ -45,8 +48,10 @@ export default function DataGrid({ columns, page, lineActions }) {
                                             className="btn"
                                             href={route("stores.index")}
                                             data={{ sort: col.id, dir: "desc" }}
+                                            only={[dataKey]}
                                         >
-                                            <BiSortDown
+                                            <BiIcon
+                                                as="BiSortDown"
                                                 style={{
                                                     width: "16px",
                                                     height: "16px",
@@ -60,8 +65,10 @@ export default function DataGrid({ columns, page, lineActions }) {
                                             className="btn"
                                             href={route("stores.index")}
                                             data={{ sort: col.id, dir: "asc" }}
+                                            only={[dataKey]}
                                         >
-                                            <BiSortUp
+                                            <BiIcon
+                                                as="BiSortUp"
                                                 style={{
                                                     width: "16px",
                                                     height: "16px",
@@ -74,8 +81,10 @@ export default function DataGrid({ columns, page, lineActions }) {
                                         className="btn"
                                         href={route("stores.index")}
                                         data={{ sort: col.id, dir: "asc" }}
+                                        only={[dataKey]}
                                     >
-                                        <BiSort
+                                        <BiIcon
+                                            as="BiSort"
                                             style={{
                                                 width: "16px",
                                                 height: "16px",

@@ -58,6 +58,7 @@ export default function Index(props) {
                     page={page}
                     sortDir={sortDir}
                     lineActions={lineActions}
+                    dataKey="stores"
                 />
             </div>
         </App>

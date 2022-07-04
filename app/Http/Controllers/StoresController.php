@@ -22,23 +22,27 @@ class StoresController extends Controller
 
     public function index()
     {
-        $columns = $this->columns;
-
         request()->validate([
-            'sort' => ['in:'.collect($columns)->implode('id', ',')],
+            'sort' => ['in:'.collect($this->columns)->implode('id', ',')],
             'dir' => ['in:asc,desc'],
         ]);
 
-        $stores = Store::query()
-            ->when(request()->has(['sort', 'dir']), function ($query) {
-                $query->orderBy(request()->get('sort'), request()->get('dir'));
-            }, function ($query) {
-                $query->orderBy('created_at', 'desc');
-            })
-            ->paginate()
-            ->withQueryString();
+        return Inertia::render('Stores/Index', [
+            'columns' => $this->columns,
+            'stores' => function () {
+                $stores = Store::query()
+                    ->when(request()->has(['sort', 'dir']), function ($query) {
+                        $query->orderBy(request()->get('sort'), request()->get('dir'));
+                    }, function ($query) {
+                        $query->orderBy('created_at', 'desc');
+                    })
+                    ->paginate()
+                    ->withQueryString();
 
-        return Inertia::render('Stores/Index', compact('stores', 'columns'));
+                return $stores;
+            }
+            
+        ]);
     }
 
     public function create()
