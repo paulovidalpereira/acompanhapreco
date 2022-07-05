@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-	font-family: "Roboto", sans-serif;
+	/*font-family: "Roboto", sans-serif;*/
 }
 
 svg {
@@ -14,18 +14,18 @@ svg {
 	@apply block mb-2;
 }
 .form-label {
-	@apply block text-sm font-medium text-gray-700;
+	@apply block text-sm font-medium text-gray-700 mb-1;
 }
 .form-input {
 	/*@apply mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-sm shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;*/
-	@apply mt-1 py-2 px-3 border border-gray-300 block w-full shadow-sm sm:text-sm rounded-md bg-white rounded-sm
+	/*@apply mt-1 py-2 px-3 border border-gray-300 block w-full shadow-sm sm:text-sm rounded-md bg-white rounded-sm*/
 	/*focus:outline-none focus:ring focus:ring-offset-0 focus:ring-indigo-500 focus:border-indigo-500;*/
-	focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+	/*focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;*/
+	@apply w-full border-gray-300 px-4 py-2 leading-5 text-sm rounded-sm shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
 }
 
 .btn {
-	/*@apply inline-flex justify-center py-1 px-2 border border-transparent shadow-sm text-sm font-medium rounded-sm text-white*/
-	@apply bg-white border-gray-300 text-gray-500 text-center hover:bg-gray-50 hidden md:inline-flex relative items-center px-2 py-1 border text-sm font-medium;
+	@apply inline-flex items-center justify-center px-4 py-1 leading-5 bg-white border border-gray-300 rounded-sm font-semibold text-xs text-gray-500 cursor-pointer uppercase active:bg-gray-100 transition ease-in-out duration-150;
 }
 
 .btn--primary {
@@ -35,18 +35,23 @@ svg {
 table {
 	@apply w-full whitespace-nowrap;
 }
+
 table th {
 	@apply bg-gray-200 text-left font-medium py-2 px-4 border-b border-slate-100;
 }
+
 table td {
 	@apply border-b border-slate-100 dark:border-slate-700 py-2 px-4 text-slate-500 dark:text-slate-400;
 }
+
 table tbody tr {
 	@apply hover:bg-gray-50 focus-within:bg-gray-100;
 }
+
 table tbody td {
 	@apply border-t;
 }
+
 table .actions {
-	width: 200px;
+	width: 100px;
 }

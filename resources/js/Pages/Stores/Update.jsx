@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
-import { Inertia } from '@inertiajs/inertia';
-import { Head, usePage } from '@inertiajs/inertia-react';
-import App from '@/Layouts/App';
-import { Form } from './Form';
+import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
+import { Head, usePage, useForm } from "@inertiajs/inertia-react";
+import App from "@/Layouts/App";
+import { Form } from "./Form";
 
 export default function Update(props) {
-    const { store, errors } = props;
-    const [formData, setFormData] = useState(store);
+    const { store } = props;
+    const { data, setData, put, processing, errors } = useForm(store);
 
-
-    const handleChange = (e) => {
-        const key = e.target.id;
-        const value = e.target.value;
-        setFormData(values => ({
+    const onHandleChange = (e) => {
+        setData((values) => ({
             ...values,
-            [key]: value
-        }))
+            [e.target.name]:
+                e.target.type === "checkbox"
+                    ? e.target.checked
+                    : e.target.value,
+        }));
     };
 
-    const handleSubmit = (e) => {
+    const onHandleSubmit = (e) => {
         e.preventDefault();
-        Inertia.put(route('stores.update', store.id), formData);
+        put(route("stores.update", store.id), data);
     };
 
     return (
         <App
             auth={props.auth}
-            errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Lojas</h2>}
+            header={
+                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                    Editar Loja: {store.name}
+                </h2>
+            }
         >
             <Head title="Lojas" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
-                    <Form handleSubmit={handleSubmit} handleChange={handleChange} formData={formData} errors={errors} />
+                    <Form
+                        data={data}
+                        errors={errors}
+                        processing={processing}
+                        handleSubmit={onHandleSubmit}
+                        handleChange={onHandleChange}
+                    />
                 </div>
             </div>
         </App>

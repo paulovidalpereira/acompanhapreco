@@ -173,7 +173,7 @@ export default function App({ auth, header, children }) {
                 </header>
             )}
 
-            <main>{children}</main>
+            <main className="p-4">{children}</main>
         </div>
     );
 }

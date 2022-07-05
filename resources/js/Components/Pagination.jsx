@@ -13,23 +13,16 @@ export const Pagination = ({ page }) => {
                         link.active,
                 });
                 return (
-                    <>
-                        {link.url === null ? (
-                            <div className={btnClass} key={link.label}>
-                                {link.label}
-                            </div>
-                        ) : (
-                            <Link
-                                href={link.url}
-                                key={link.label}
-                                method="get"
-                                only={["stores"]}
-                                className={btnClass}
-                            >
-                                {link.label}
-                            </Link>
-                        )}
-                    </>
+                    <Link
+                        href={link.url}
+                        key={link.label}
+                        method="get"
+                        only={["stores"]}
+                        className={btnClass}
+                        disabled={link.url === null ? true : false}
+                    >
+                        {link.label}
+                    </Link>
                 );
             })}
         </div>

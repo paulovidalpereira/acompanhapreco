@@ -1,52 +1,64 @@
 import React from "react";
 import Input from "@/Components/Input";
+import Label from "@/Components/Label";
+import Button from "@/Components/Button";
 
-export const Form = ({ formData, errors, handleSubmit, handleChange }) => {
+export const Form = ({
+    data,
+    errors,
+    processing,
+    handleSubmit,
+    handleChange,
+}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
-                <label className="form-label">Loja:</label>
+                <Label forInput="name">Loja:</Label>
                 <Input
                     type="text"
-                    className="form-input"
+                    name="name"
+                    id="name"
+                    value={data.name}
                     handleChange={handleChange}
                 />
                 {errors.name && (
-                    <div class="text-red-500 text-sm">{errors.name}</div>
+                    <div className="text-red-500 text-sm">{errors.name}</div>
                 )}
             </div>
             <div className="form-field">
-                <label className="form-label">Url:</label>
-                <input
+                <Label forInput="domain">Dominio:</Label>
+                <Input
                     type="text"
-                    name="url"
-                    id="url"
-                    className="form-input"
-                    value={formData.url}
-                    onChange={handleChange}
+                    name="domain"
+                    id="domain"
+                    value={data.domain}
+                    handleChange={handleChange}
                 />
-                {errors.url && (
-                    <div class="text-red-500 text-sm">{errors.url}</div>
+                {errors.domain && (
+                    <div className="text-red-500 text-sm">{errors.domain}</div>
                 )}
             </div>
             <div className="form-field">
-                <label className="form-label">Class:</label>
-                <input
+                <Label forInput="class">Class:</Label>
+                <Input
                     type="text"
                     name="class"
                     id="class"
-                    className="form-input"
-                    value={formData.class}
-                    onChange={handleChange}
+                    value={data.class}
+                    handleChange={handleChange}
                 />
                 {errors.class && (
-                    <div class="text-red-500 text-sm">{errors.class}</div>
+                    <div className="text-red-500 text-sm">{errors.class}</div>
                 )}
             </div>
             <div>
-                <button type="submit" className="btn">
+                <Button
+                    type="submit"
+                    processing={processing}
+                    className="btn--primary"
+                >
                     Salvar
-                </button>
+                </Button>
             </div>
         </form>
     );

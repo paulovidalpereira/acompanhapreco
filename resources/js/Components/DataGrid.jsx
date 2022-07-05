@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
-import { FiEdit2, FiX } from "react-icons/fi";
-import { BiSort, BiSortDown, BiSortUp } from "react-icons/bi";
 import { BiIcon } from "@/Components/BiIcon";
+import { FiIcon } from "@/Components/FiIcon";
 import { Pagination } from "@/Components/Pagination";
+import Dropdown from "@/Components/Dropdown";
 
 export default function DataGrid({ columns, page, lineActions, dataKey }) {
     return (
@@ -111,11 +111,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                 return <td key={col.id}>{item[col.id]}</td>;
                             })}
                             {lineActions && (
-                                <td className="actions">
-                                    <div className="grid grid-cols-2 gap-x-1">
-                                        {lineActions(item)}
-                                    </div>
-                                </td>
+                                <td className="actions">{lineActions(item)}</td>
                             )}
                         </tr>
                     ))}

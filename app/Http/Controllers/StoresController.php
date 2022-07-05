@@ -54,11 +54,11 @@ class StoresController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'url' => 'required',
+            'domain' => 'required',
             'class' => 'required',
         ]);
 
-        Store::create($request->validated());
+        Store::create($request->only('name', 'domain', 'class'));
 
         return redirect('stores');
     }
@@ -72,11 +72,18 @@ class StoresController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'url' => 'required',
+            'domain' => 'required',
             'class' => 'required',
         ]);
         
-        $store->fill($request->only('name', 'url', 'class'))->save();
+        $store->fill($request->only('name', 'domain', 'class'))->save();
+
+        return redirect('stores');
+    }
+
+    public function destroy(Store $store)
+    {
+        $store->delete();
 
         return redirect('stores');
     }

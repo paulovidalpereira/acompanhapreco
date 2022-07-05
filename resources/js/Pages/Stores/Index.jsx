@@ -2,30 +2,35 @@ import React from "react";
 import App from "@/Layouts/App";
 import { Head, Link } from "@inertiajs/inertia-react";
 import DataGrid from "@/Components/DataGrid";
+import { FiIcon } from "@/Components/FiIcon";
+import { Empty } from "@/Components/Empty";
+import Dropdown from "@/Components/Dropdown";
 
 export default function Index(props) {
-    const { stores: page, columns, sortDir } = props;
+    const { stores, columns } = props;
 
     const lineActions = (row) => {
         return (
-            <>
-                <Link
-                    method="get"
-                    href={route("stores.edit", row.id)}
-                    className="btn"
-                >
-                    Editar
-                </Link>
-                <Link
-                    as="button"
-                    type="button"
-                    method="delete"
-                    href={route("stores.destroy", row.id)}
-                    className="btn"
-                >
-                    Excluir
-                </Link>
-            </>
+            <Dropdown>
+                <Dropdown.Trigger>
+                    <FiIcon as="FiMoreVertical" />
+                </Dropdown.Trigger>
+                <Dropdown.Content>
+                    <Dropdown.Link
+                        href={route("stores.edit", row.id)}
+                        method="get"
+                    >
+                        Editar
+                    </Dropdown.Link>
+                    <Dropdown.Link
+                        href={route("stores.destroy", row.id)}
+                        method="delete"
+                        as="button"
+                    >
+                        Excluir
+                    </Dropdown.Link>
+                </Dropdown.Content>
+            </Dropdown>
         );
     };
 
@@ -35,31 +40,32 @@ export default function Index(props) {
             errors={props.errors}
             header={
                 <div className="flex justify-between">
-                    <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                    <h1 className="font-semibold text-xl text-gray-800 leading-tight">
                         Lojas
-                    </h2>
+                    </h1>
                     <div>
                         <Link
                             href={route("stores.create")}
-                            method="get"
                             className="btn btn--primary"
                         >
                             Nova Loja
                         </Link>
                     </div>
-                    <input type="text" />
                 </div>
             }
         >
             <Head title="Lojas" />
-            <div className="bg-white overflow-hidden shadow-sm">
-                <DataGrid
-                    columns={columns}
-                    page={page}
-                    sortDir={sortDir}
-                    lineActions={lineActions}
-                    dataKey="stores"
-                />
+            <div className="bg-white shadow-sm">
+                {stores.total > 0 ? (
+                    <DataGrid
+                        columns={columns}
+                        page={stores}
+                        lineActions={lineActions}
+                        dataKey="stores"
+                    />
+                ) : (
+                    <Empty>Nenhuma loja cadastrada</Empty>
+                )}
             </div>
         </App>
     );
