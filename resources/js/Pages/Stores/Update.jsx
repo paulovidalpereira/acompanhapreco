@@ -26,11 +26,7 @@ export default function Update(props) {
     return (
         <App
             auth={props.auth}
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Editar Loja: {store.name}
-                </h2>
-            }
+            header={<h1 className="app-title">Editar Loja: {store.name}</h1>}
         >
             <Head title="Lojas" />
             <div className="bg-white overflow-hidden shadow-sm">

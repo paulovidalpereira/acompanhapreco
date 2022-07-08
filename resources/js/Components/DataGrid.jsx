@@ -13,7 +13,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                     Página{" "}
                     <Link
                         href={page.prev_page_url}
-                        className="btn"
+                        className="btn btn--small"
                         disabled={page.current_page === 1}
                         only={[dataKey]}
                     >
@@ -22,7 +22,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                     {page.current_page}{" "}
                     <Link
                         href={page.next_page_url}
-                        className="btn"
+                        className="btn btn--small"
                         disabled={page.current_page === page.last_page}
                         only={[dataKey]}
                     >
@@ -40,14 +40,17 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                 <thead>
                     <tr>
                         {columns.map((col) => (
-                            <td key={col.id}>
+                            <td key={col.accessor}>
                                 <span>{col.label}</span>
-                                {route().params.sort === col.id &&
+                                {route().params.sort === col.accessor &&
                                     route().params.dir === "asc" && (
                                         <Link
-                                            className="btn"
+                                            className="btn btn--small"
                                             href={route("stores.index")}
-                                            data={{ sort: col.id, dir: "desc" }}
+                                            data={{
+                                                sort: col.accessor,
+                                                dir: "desc",
+                                            }}
                                             only={[dataKey]}
                                         >
                                             <BiIcon
@@ -59,12 +62,15 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                             />
                                         </Link>
                                     )}
-                                {route().params.sort === col.id &&
+                                {route().params.sort === col.accessor &&
                                     route().params.dir === "desc" && (
                                         <Link
-                                            className="btn"
+                                            className="btn btn--small"
                                             href={route("stores.index")}
-                                            data={{ sort: col.id, dir: "asc" }}
+                                            data={{
+                                                sort: col.accessor,
+                                                dir: "asc",
+                                            }}
                                             only={[dataKey]}
                                         >
                                             <BiIcon
@@ -76,11 +82,14 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                             />
                                         </Link>
                                     )}
-                                {route().params.sort !== col.id && (
+                                {route().params.sort !== col.accessor && (
                                     <Link
-                                        className="btn"
+                                        className="btn btn--small"
                                         href={route("stores.index")}
-                                        data={{ sort: col.id, dir: "asc" }}
+                                        data={{
+                                            sort: col.accessor,
+                                            dir: "asc",
+                                        }}
                                         only={[dataKey]}
                                     >
                                         <BiIcon
@@ -103,12 +112,16 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                             {columns.map((col) => {
                                 if (col.Cell) {
                                     return (
-                                        <td key={col.id}>
-                                            {col.Cell(item[col.id])}
+                                        <td key={col.accessor}>
+                                            {col.Cell(item[col.accessor])}
                                         </td>
                                     );
                                 }
-                                return <td key={col.id}>{item[col.id]}</td>;
+                                return (
+                                    <td key={col.accessor}>
+                                        {item[col.accessor]}
+                                    </td>
+                                );
                             })}
                             {lineActions && (
                                 <td className="actions">{lineActions(item)}</td>

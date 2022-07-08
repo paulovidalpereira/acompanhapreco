@@ -31,13 +31,9 @@ export default function Create(props) {
     return (
         <App
             auth={props.auth}
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Nova Loja
-                </h2>
-            }
+            header={<h1 className="app-title">Nova Loja</h1>}
         >
-            <Head title="Lojas" />
+            <Head title="Nova Loja" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
                     <Form

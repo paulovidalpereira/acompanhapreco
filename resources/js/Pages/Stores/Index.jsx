@@ -1,6 +1,5 @@
 import React from "react";
 import App from "@/Layouts/App";
-import { Head, Link } from "@inertiajs/inertia-react";
 import DataGrid from "@/Components/DataGrid";
 import { FiIcon } from "@/Components/FiIcon";
 import { Empty } from "@/Components/Empty";
@@ -34,27 +33,17 @@ export default function Index(props) {
         );
     };
 
+    const actions = () => {
+        return "teste123";
+    };
+
     return (
         <App
             auth={props.auth}
             errors={props.errors}
-            header={
-                <div className="flex justify-between">
-                    <h1 className="font-semibold text-xl text-gray-800 leading-tight">
-                        Lojas
-                    </h1>
-                    <div>
-                        <Link
-                            href={route("stores.create")}
-                            className="btn btn--primary"
-                        >
-                            Nova Loja
-                        </Link>
-                    </div>
-                </div>
-            }
+            title="Lojas"
+            actions={actions}
         >
-            <Head title="Lojas" />
             <div className="bg-white shadow-sm">
                 {stores.total > 0 ? (
                     <DataGrid

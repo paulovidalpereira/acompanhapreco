@@ -12,11 +12,11 @@ class StoresController extends Controller
     public function __construct()
     {
         $this->columns = [
-            ["id" => "id", "label" => "#"],
-            ["id" => "name", "label" => "Name"],
-            ["id" => "url", "label" => "URL"],
-            ["id" => "class", "label" => "Class"],
-            ["id" => "created_at", "label" => "Created At"],
+            ["accessor" => "id", "label" => "#"],
+            ["accessor" => "name", "label" => "Name"],
+            ["accessor" => "url", "label" => "URL"],
+            ["accessor" => "class", "label" => "Class"],
+            ["accessor" => "created_at", "label" => "Created At"],
         ];
     }
 

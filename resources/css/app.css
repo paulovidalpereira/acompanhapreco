@@ -3,55 +3,77 @@
 @tailwind utilities;
 
 body {
-	/*font-family: "Roboto", sans-serif;*/
+    /*font-family: "Roboto", sans-serif;*/
 }
 
 svg {
-	display: inline-block;
+    display: inline-block;
+}
+
+.app {
+}
+
+.app-bar {
+    @apply bg-white border-b border-gray-200 h-14 px-4 flex justify-between items-center;
+}
+
+.app-title {
+    @apply font-semibold text-xl text-gray-800 leading-tight;
 }
 
 .form-field {
-	@apply block mb-2;
+    @apply block mb-2;
 }
+
 .form-label {
-	@apply block text-sm font-medium text-gray-700 mb-1;
+    @apply block text-sm font-medium text-gray-700 mb-1;
 }
+
 .form-input {
-	/*@apply mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-sm shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;*/
-	/*@apply mt-1 py-2 px-3 border border-gray-300 block w-full shadow-sm sm:text-sm rounded-md bg-white rounded-sm*/
-	/*focus:outline-none focus:ring focus:ring-offset-0 focus:ring-indigo-500 focus:border-indigo-500;*/
-	/*focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;*/
-	@apply w-full border-gray-300 px-4 py-2 leading-5 text-sm rounded-sm shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+    @apply w-full border-gray-300 px-3 py-2 leading-5 text-sm rounded-sm shadow-sm
+    focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
 }
 
 .btn {
-	@apply inline-flex items-center justify-center px-4 py-1 leading-5 bg-white border border-gray-300 rounded-sm font-semibold text-xs text-gray-500 cursor-pointer uppercase active:bg-gray-100 transition ease-in-out duration-150;
+    @apply bg-white px-3 py-2 border rounded-sm font-semibold text-sm text-gray-700 leading-5 inline-flex justify-center items-center gap-2 whitespace-nowrap shadow-sm align-middle transition-all
+    hover:bg-gray-50
+    active:outline-none active:ring-2 active:ring-blue-600 active:ring-offset-2;
+}
+
+.btn--active {
+    @apply border-blue-600;
+}
+
+.btn--small {
+    @apply px-2 py-1;
 }
 
 .btn--primary {
-	@apply text-white border-indigo-600 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+    @apply text-white border-indigo-600 bg-indigo-600
+    hover:bg-indigo-700
+    focus:outline-none focus:ring-2 focus:ring-blue-200;
 }
 
 table {
-	@apply w-full whitespace-nowrap;
+    @apply w-full whitespace-nowrap;
 }
 
 table th {
-	@apply bg-gray-200 text-left font-medium py-2 px-4 border-b border-slate-100;
+    @apply bg-gray-200 text-left font-medium py-2 px-4 border-b border-slate-100;
 }
 
 table td {
-	@apply border-b border-slate-100 dark:border-slate-700 py-2 px-4 text-slate-500 dark:text-slate-400;
+    @apply border-b border-slate-100 py-2 px-4 text-slate-500;
 }
 
 table tbody tr {
-	@apply hover:bg-gray-50 focus-within:bg-gray-100;
+    @apply hover:bg-gray-50 focus-within:bg-gray-100;
 }
 
 table tbody td {
-	@apply border-t;
+    @apply border-t;
 }
 
 table .actions {
-	width: 100px;
+    width: 100px;
 }
