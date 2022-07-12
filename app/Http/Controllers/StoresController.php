@@ -47,7 +47,7 @@ class StoresController extends Controller
 
     public function edit(Store $store)
     {
-        return Inertia::render('Stores/Update', compact('store'));
+        return Inertia::render('Stores/Edit', compact('store'));
     }
 
     public function update(Store $store, StoreCreateRequest $request)

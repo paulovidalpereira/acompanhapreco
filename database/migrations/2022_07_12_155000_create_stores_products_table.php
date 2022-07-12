@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Store;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Store;
 
 return new class extends Migration
 {
@@ -14,14 +15,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('stores_products', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('sku')->nullable();
+            $table->foreignIdFor(Product::class);
             $table->foreignIdFor(Store::class);
-            $table->unsignedSmallInteger('status')->default(0);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->string('url')->nullable();
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('stores_products');
     }
 };

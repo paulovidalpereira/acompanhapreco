@@ -1,10 +1,8 @@
-import React, { useState } from "react";
 import App from "@/Layouts/App";
-import { Inertia } from "@inertiajs/inertia";
-import { Head, usePage, useForm } from "@inertiajs/inertia-react";
-import { Form } from "./Form";
+import { useForm } from "@inertiajs/inertia-react";
+import { Form } from "../components/Form";
 
-export default function Update(props) {
+export const EditView = (props) => {
     const { store } = props;
     const { data, setData, put, processing, errors } = useForm(store);
 
@@ -26,7 +24,6 @@ export default function Update(props) {
 
     return (
         <App auth={props.auth} title="Editar Loja">
-            <Head title="Gerenciar Lojas" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
                     <Form
@@ -40,4 +37,4 @@ export default function Update(props) {
             </div>
         </App>
     );
-}
+};
