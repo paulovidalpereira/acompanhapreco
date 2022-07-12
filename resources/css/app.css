@@ -30,12 +30,12 @@ svg {
 }
 
 .form-input {
-    @apply w-full border-gray-200 px-3 py-2 leading-5 text-sm rounded-sm shadow-sm
+    @apply w-full border border-gray-200 rounded-sm px-3 py-2 text-sm leading-5 shadow-sm
     focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
 }
 
 .btn {
-    @apply bg-white px-3 py-2 border rounded-sm font-semibold text-sm text-gray-700 leading-5 inline-flex justify-center items-center gap-2 whitespace-nowrap shadow-sm align-middle transition-all
+    @apply bg-white border border-gray-200 rounded-sm px-3 py-2 font-semibold text-sm text-gray-700 leading-5 inline-flex justify-center items-center gap-2 whitespace-nowrap shadow-sm transition-all
     hover:bg-gray-50
     active:outline-none active:ring-2 active:ring-blue-600 active:ring-offset-2;
 }

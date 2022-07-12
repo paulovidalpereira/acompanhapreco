@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Store::class);
             $table->string('name')->nullable();
             $table->string('url')->nullable();
-            $table->unsignedSmallInteger('status')->nullable();
+            $table->unsignedSmallInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

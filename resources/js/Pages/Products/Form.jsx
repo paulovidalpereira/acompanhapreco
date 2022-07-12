@@ -9,11 +9,12 @@ export const Form = ({
     processing,
     handleSubmit,
     handleChange,
+    sources,
 }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
-                <Label forInput="name">Loja:</Label>
+                <Label forInput="name">Produto:</Label>
                 <Input
                     type="text"
                     name="name"
@@ -26,29 +27,36 @@ export const Form = ({
                 )}
             </div>
             <div className="form-field">
-                <Label forInput="domain">Dominio:</Label>
+                <Label forInput="url">URL:</Label>
                 <Input
                     type="text"
-                    name="domain"
-                    id="domain"
-                    value={data.domain}
+                    name="url"
+                    id="url"
+                    value={data.url}
                     handleChange={handleChange}
                 />
-                {errors.domain && (
-                    <div className="text-red-500 text-sm">{errors.domain}</div>
+                {errors.url && (
+                    <div className="text-red-500 text-sm">{errors.url}</div>
                 )}
             </div>
             <div className="form-field">
-                <Label forInput="class">Class:</Label>
-                <Input
-                    type="text"
-                    name="class"
-                    id="class"
-                    value={data.class}
-                    handleChange={handleChange}
-                />
-                {errors.class && (
-                    <div className="text-red-500 text-sm">{errors.class}</div>
+                <Label forInput="store_id">Loja:</Label>
+                <select
+                    name="store_id"
+                    id="store_id"
+                    className="form-input"
+                    value={data.store_id}
+                    onChange={handleChange}
+                >
+                    <option></option>
+                    {sources.stores.map((store) => (
+                        <option value={store.id} key={store.id}>
+                            {store.name}
+                        </option>
+                    ))}
+                </select>
+                {errors.status && (
+                    <div className="text-red-500 text-sm">{errors.status}</div>
                 )}
             </div>
             <div className="form-field">

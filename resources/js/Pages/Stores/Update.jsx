@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import App from "@/Layouts/App";
 import { Inertia } from "@inertiajs/inertia";
 import { Head, usePage, useForm } from "@inertiajs/inertia-react";
-import App from "@/Layouts/App";
 import { Form } from "./Form";
 
 export default function Update(props) {
@@ -20,15 +20,13 @@ export default function Update(props) {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
+        console.log({ data });
         put(route("stores.update", store.id), data);
     };
 
     return (
-        <App
-            auth={props.auth}
-            header={<h1 className="app-title">Editar Loja: {store.name}</h1>}
-        >
-            <Head title="Lojas" />
+        <App auth={props.auth} title="Editar Loja">
+            <Head title="Gerenciar Lojas" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
                     <Form

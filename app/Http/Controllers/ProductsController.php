@@ -1,69 +1,93 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductStoreRequest;
 use App\Models\Product;
 use App\Models\Store;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Validation\Rule;
 
 class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::with('store')->paginate();
-        return Inertia::render('Products/Index', ['products' => $products]);
+        request()->validate([
+            'sort' => [Rule::in(["id", "name", "url", "status", "store", "created_at"])],
+            'dir' => [Rule::in(["asc", "desc"])],
+        ]);
+
+        return Inertia::render('Products/Index', [
+            'products' => function () {
+                $products = Product::with('store')->fastPaginate()->through(function ($product) {
+                    return [
+                        'id' => $product->id,
+                        'name' => $product->name,
+                        'url' => $product->url,
+                        'status' => $product->status,
+                        'store' => $product->store->name,
+                        'created_at' => $product->created_at,
+                    ];
+                });
+
+                return $products;
+            }
+        ]);
     }
 
     public function create()
     {
-        $stores = Store::all();
+        $stores = Store::all()->transform(function ($store) {
+            return [
+                'id' => $store->id,
+                'name' => $store->name,
+            ];
+        });
 
         return Inertia::render('Products/Create', ['stores' => $stores]);
     }
 
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'url' => 'required',
-            'store_id' => 'required',
-        ]);
-
         $store = Store::findOrFail($request->store_id);
 
-        $product = new Product($request->only('name', 'url'));
+        $product = new Product($request->only('name', 'url', 'status'));
         $product->store()->associate($store)->save();
 
         return redirect('products')->with([
-            'message' => 'Product created successfully.',
+            'message' => [
+                'type' => 'success',
+                'text' => 'Product created successfully.',
+            ],
         ]);
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+        $stores = Store::all()->transform(function ($store) {
+            return [
+                'id' => $store->id,
+                'name' => $store->name,
+            ];
+        });
 
-        $stores = Store::all();
-
-        return Inertia::render('Products/Edit', ['stores' => $stores, 'product' => $product]);
+        return Inertia::render('Products/Edit', ['product' => $product, 'stores' => $stores]);
     }
 
-    public function update($id, Request $request)
+    public function update($id, ProductStoreRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'url' => 'required',
-            'store_id' => 'required',
-        ]);
-
         $product = Product::findOrFail($id);
         $store = Store::findOrFail($request->store_id);
 
-        $product->fill($request->only('name', 'url'));
+        $product->fill($request->only('name', 'url', 'status'));
         $product->store()->associate($store)->save();
 
         return redirect('products')->with([
-            'message' => 'Product successfully updated.',
+            'message' => [
+                'type' => 'success',
+                'text' => 'Product successfully updated.',
+            ],
         ]);
     }
 
@@ -74,7 +98,11 @@ class ProductsController extends Controller
         $product->delete();
 
         return redirect('products')->with([
-            'message' => 'Product deleted successfully.',
+            'message' => [
+                'type' => 'success',
+                'text' => 'Product deleted successfully.'
+            ],
         ]);
     }
 }
+

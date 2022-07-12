@@ -13,6 +13,8 @@ class Product extends Model
     protected $fillable = [
         'name',
         'url',
+        'store_id',
+        'status',
     ];
 
     public function store()

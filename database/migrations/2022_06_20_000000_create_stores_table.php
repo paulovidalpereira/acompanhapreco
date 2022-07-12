@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('domain')->nullable();
             $table->string('class')->nullable();
-            $table->unsignedSmallInteger('status')->nullable();
+            $table->unsignedSmallInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

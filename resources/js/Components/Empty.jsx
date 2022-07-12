@@ -1,3 +1,3 @@
 export const Empty = ({ children }) => {
-	return <div>{children}</div>;
+	return <div className="p-6 text-center">{children}</div>;
 };

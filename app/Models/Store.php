@@ -16,20 +16,11 @@ class Store extends Model
         'name',
         'domain',
         'class',
+        'status',
     ];
 
     protected function products()
     {
         return $this->hasMany(Product::class);
-    }
-
-    protected function createdAt(): Attribute
-    {
-        return Attribute::make(
-            get: function ($value) {
-                $newDate = Carbon::parse($value)->format('d/m/Y H:i:s');
-                return $newDate;
-            },
-        );
     }
 }

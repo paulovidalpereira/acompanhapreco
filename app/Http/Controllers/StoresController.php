@@ -1,47 +1,35 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCreateRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Validation\Rule;
 
 class StoresController extends Controller
 {
-    public $columns = [];
-
-    public function __construct()
-    {
-        $this->columns = [
-            ["accessor" => "id", "label" => "#"],
-            ["accessor" => "name", "label" => "Name"],
-            ["accessor" => "url", "label" => "URL"],
-            ["accessor" => "class", "label" => "Class"],
-            ["accessor" => "created_at", "label" => "Created At"],
-        ];
-    }
-
     public function index()
     {
         request()->validate([
-            'sort' => ['in:'.collect($this->columns)->implode('id', ',')],
-            'dir' => ['in:asc,desc'],
+            'sort' => [Rule::in(["id", "name", "domain", "class", "status", "created_at"])],
+            'dir' => [Rule::in(["asc", "desc"])],
         ]);
 
         return Inertia::render('Stores/Index', [
-            'columns' => $this->columns,
             'stores' => function () {
                 $stores = Store::query()
                     ->when(request()->has(['sort', 'dir']), function ($query) {
-                        $query->orderBy(request()->get('sort'), request()->get('dir'));
+                        $query->orderBy(request('sort'), request('dir'));
                     }, function ($query) {
                         $query->orderBy('created_at', 'desc');
                     })
-                    ->paginate()
+                    ->fastPaginate()
                     ->withQueryString();
 
                 return $stores;
             }
-            
         ]);
     }
 
@@ -50,15 +38,9 @@ class StoresController extends Controller
         return Inertia::render('Stores/Create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCreateRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'domain' => 'required',
-            'class' => 'required',
-        ]);
-
-        Store::create($request->only('name', 'domain', 'class'));
+        Store::create($request->only('name', 'domain', 'class', 'status'));
 
         return redirect('stores');
     }
@@ -68,15 +50,9 @@ class StoresController extends Controller
         return Inertia::render('Stores/Update', compact('store'));
     }
 
-    public function update(Store $store, Request $request)
+    public function update(Store $store, StoreCreateRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'domain' => 'required',
-            'class' => 'required',
-        ]);
-        
-        $store->fill($request->only('name', 'domain', 'class'))->save();
+        $store->fill($request->only('name', 'domain', 'class', 'status'))->save();
 
         return redirect('stores');
     }

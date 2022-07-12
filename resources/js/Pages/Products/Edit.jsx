@@ -1,61 +1,42 @@
-import React, { useState } from 'react';
-import App from '@/Layouts/App';
-import { Head } from '@inertiajs/inertia-react';
-import { Inertia } from '@inertiajs/inertia';
+import React, { useState } from "react";
+import { Inertia } from "@inertiajs/inertia";
+import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import App from "@/Layouts/App";
+import { Form } from "./Form";
 
-export default function Edit(props) {
-    const { product, stores, errors } = props;
+export default function Create(props) {
+    const { product, stores } = props;
+    const { data, setData, put, processing, errors } = useForm(product);
 
-    const [formData, setFormData] = useState(product);
-
-    const handleChange = (e) => {
-        const key = e.target.id;
-        const value = e.target.value;
-        setFormData(values => ({
+    const onHandleChange = (e) => {
+        setData((values) => ({
             ...values,
-            [key]: value
-        }))
+            [e.target.name]:
+                e.target.type === "checkbox"
+                    ? e.target.checked
+                    : e.target.value,
+        }));
     };
 
-    const handleSubmit = (e) => {
+    const onHandleSubmit = (e) => {
         e.preventDefault();
-        Inertia.put('/products/'+product.id, {_token: this.$page.props.csrf_token, ...formData});
+        console.log({ data });
+        put(route("products.update", product.id), data);
     };
 
     return (
-        <App
-            auth={props.auth}
-            errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Editar Produto</h2>}
-        >
-            <Head title="Lojas" />
+        <App auth={props.auth} title="Editar Produto">
+            <Head title="Editar Produto" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-field">
-                            <label className="form-label">Produto:</label>
-                            <input name="name" id="name" className="form-input" value={formData.name} onChange={handleChange} />
-                            {errors.name && (<div className="text-sm text-red-500">{errors.name}</div>)}
-                        </div>
-                        <div className="form-field">
-                            <label className="form-label">Url:</label>
-                            <input name="url" id="url" className="form-input" value={formData.url} onChange={handleChange} />
-                            {errors.url && (<div className="text-sm text-red-500">{errors.url}</div>)}
-                        </div>
-                        <div className="form-field">
-                            <label className="form-label">Loja:</label>
-                            <select name="store_id" id="store_id" className="form-input"  value={formData.store_id} onChange={handleChange}>
-                                <option></option>
-                                {stores.map(store => (
-                                    <option value={store.id} key={store.id}>{store.name}</option>
-                                ))}
-                            </select>
-                            {errors.store_id && (<div className="text-sm text-red-500">{errors.store_id}</div>)}
-                        </div>
-                        <div>
-                            <button type="submit" className="btn">Salvar</button>
-                        </div>
-                    </form>
+                    <Form
+                        data={data}
+                        errors={errors}
+                        processing={processing}
+                        handleSubmit={onHandleSubmit}
+                        handleChange={onHandleChange}
+                        sources={{ stores }}
+                    />
                 </div>
             </div>
         </App>

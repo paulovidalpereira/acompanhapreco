@@ -167,13 +167,16 @@ const AppHeader = ({ auth }) => {
     );
 };
 
-const AppBar = ({ title, actions }) => {
-    console.log({ actions });
+const AppBar = ({ title, Actions }) => {
     return (
         <header className="app-bar">
             <Head title={title} />
             <h1 className="app-title">{title}</h1>
-            {actions && <div className="app-actions">{actions}</div>}
+            {Actions && (
+                <div className="app-actions">
+                    <Actions />
+                </div>
+            )}
         </header>
     );
 };
@@ -182,12 +185,12 @@ const AppWrapper = ({ children }) => {
     return <div className="app-wrapper">{children}</div>;
 };
 
-export default function App({ auth, title, actions, children }) {
+export default function App({ auth, title, Actions, children }) {
     return (
         <div className="app min-h-screen bg-gray-100">
             <AppHeader auth={auth} />
             <AppWrapper>
-                {title && <AppBar title={title} actions={actions} />}
+                {title && <AppBar title={title} Actions={Actions} />}
                 <main className="app-content p-0">{children}</main>
             </AppWrapper>
         </div>

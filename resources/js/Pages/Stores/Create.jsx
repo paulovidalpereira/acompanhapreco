@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import App from "@/Layouts/App";
 import { Inertia } from "@inertiajs/inertia";
 import { Head, usePage, useForm } from "@inertiajs/inertia-react";
-
 import { Form } from "./Form";
 
 export default function Create(props) {
-    const { data, setData, post, processing, errors } = useForm({
-        name: "",
-        domain: "",
-        class: "",
-    });
+    const store = { name: "", domain: "", class: "", status: 0 };
+    const { data, setData, post, processing, errors } = useForm(store);
 
     const onHandleChange = (e) => {
         setData((values) => ({
@@ -24,15 +20,12 @@ export default function Create(props) {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
+        console.log({ data });
         post(route("stores.store"), data);
-        console.log(data);
     };
 
     return (
-        <App
-            auth={props.auth}
-            header={<h1 className="app-title">Nova Loja</h1>}
-        >
+        <App auth={props.auth} title="Nova Loja">
             <Head title="Nova Loja" />
             <div className="bg-white overflow-hidden shadow-sm">
                 <div className="p-4 bg-white border-b border-gray-200">
