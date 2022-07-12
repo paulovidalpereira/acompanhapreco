@@ -19,18 +19,24 @@ class ProductsController extends Controller
 
         return Inertia::render('Products/Index', [
             'products' => function () {
-                $products = Product::with('store')->fastPaginate()->through(function ($product) {
-                    return [
-                        'id' => $product->id,
-                        'name' => $product->name,
-                        'url' => $product->url,
-                        'status' => $product->status,
-                        'store' => $product->store->name,
-                        'created_at' => $product->created_at,
-                    ];
-                });
-
-                return $products;
+                return Product::query()
+                    ->with('store')
+                    ->when(request()->has(['sort', 'dir']), function ($query) {
+                        $query->orderBy(request('sort'), request('dir'));
+                    }, function ($query) {
+                        $query->orderBy('created_at', 'desc');
+                    })
+                    ->fastPaginate()
+                    ->through(function ($product) {
+                        return [
+                            'id' => $product->id,
+                            'name' => $product->name,
+                            'url' => $product->url,
+                            'status' => $product->status,
+                            'store' => $product->store->name,
+                            'created_at' => $product->created_at,
+                        ];
+                    });
             }
         ]);
     }

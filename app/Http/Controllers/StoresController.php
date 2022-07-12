@@ -19,7 +19,7 @@ class StoresController extends Controller
 
         return Inertia::render('Stores/Index', [
             'stores' => function () {
-                $stores = Store::query()
+                return Store::query()
                     ->when(request()->has(['sort', 'dir']), function ($query) {
                         $query->orderBy(request('sort'), request('dir'));
                     }, function ($query) {
@@ -27,8 +27,6 @@ class StoresController extends Controller
                     })
                     ->fastPaginate()
                     ->withQueryString();
-
-                return $stores;
             }
         ]);
     }
