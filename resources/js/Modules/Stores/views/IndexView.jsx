@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/inertia-react";
-import App from "@/Layouts/App";
 import DataGrid from "@/Components/DataGrid";
 import { FiIcon } from "@/Components/FiIcon";
 import { Empty } from "@/Components/Empty";
@@ -71,24 +70,17 @@ export const IndexView = (props) => {
     ];
 
     return (
-        <App
-            auth={props.auth}
-            errors={props.errors}
-            title="Lojas"
-            Actions={Actions}
-        >
-            <div className="bg-white shadow-sm">
-                {stores.total > 0 ? (
-                    <DataGrid
-                        columns={columns}
-                        page={stores}
-                        lineActions={lineActions}
-                        dataKey="stores"
-                    />
-                ) : (
-                    <Empty>Nenhuma loja cadastrada</Empty>
-                )}
-            </div>
-        </App>
+        <div>
+            {stores.total > 0 ? (
+                <DataGrid
+                    columns={columns}
+                    page={stores}
+                    lineActions={lineActions}
+                    dataKey="stores"
+                />
+            ) : (
+                <Empty>Nenhuma loja cadastrada</Empty>
+            )}
+        </div>
     );
 };

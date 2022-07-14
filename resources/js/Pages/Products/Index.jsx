@@ -1,5 +1,8 @@
-import { IndexView } from "@/Modules/Products/views/IndexView";
+import { withAppLayout } from "@/hoc/withAppLayout";
+import { IndexContainer } from "@/Modules/Products/containers/IndexContainer";
 
-export default function Index(props) {
-    return <IndexView {...props} />;
-}
+const Index = (props) => {
+    return <IndexContainer {...props} />;
+};
+
+export default withAppLayout(Index);

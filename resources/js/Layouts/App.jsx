@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, Head } from "@inertiajs/inertia-react";
+import { useState } from "react";
+import { Link, Head, usePage } from "@inertiajs/inertia-react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
@@ -10,7 +10,7 @@ const AppHeader = ({ auth }) => {
         useState(false);
 
     return (
-        <nav className="app-header bg-white border-b border-gray-200">
+        <nav className="app-header">
             <div className="mx-auto px-4">
                 <div className="flex justify-between h-16">
                     <div className="flex">
@@ -50,10 +50,7 @@ const AppHeader = ({ auth }) => {
                             <Dropdown>
                                 <Dropdown.Trigger>
                                     <span className="inline-flex rounded-md">
-                                        <button
-                                            type="button"
-                                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                                        >
+                                        <button type="button" className="btn">
                                             {auth.user.name}
 
                                             <svg
@@ -167,32 +164,37 @@ const AppHeader = ({ auth }) => {
     );
 };
 
-const AppBar = ({ title, Actions }) => {
+export const Page = ({ title, Sidebar, Actions, children }) => {
     return (
-        <header className="app-bar">
-            <Head title={title} />
-            <h1 className="app-title">{title}</h1>
-            {Actions && (
-                <div className="app-actions">
-                    <Actions />
-                </div>
-            )}
-        </header>
-    );
-};
-
-const AppWrapper = ({ children }) => {
-    return <div className="app-wrapper">{children}</div>;
-};
-
-export default function App({ auth, title, Actions, children }) {
-    return (
-        <div className="app min-h-screen bg-gray-100">
-            <AppHeader auth={auth} />
-            <AppWrapper>
-                {title && <AppBar title={title} Actions={Actions} />}
-                <main className="app-content p-0">{children}</main>
-            </AppWrapper>
+        <div className="page">
+            {Sidebar && <div className="page-sidebar">page-sidebar</div>}
+            <div className="page-wrapper">
+                {title && (
+                    <header className="page-header">
+                        <Head title={title} />
+                        <h1 className="page-title">{title}</h1>
+                        {Actions && (
+                            <div className="page-actions">
+                                <Actions />
+                            </div>
+                        )}
+                    </header>
+                )}
+                <main className="page-content p-0">{children}</main>
+            </div>
         </div>
     );
-}
+};
+
+export const App = ({ title, Sidebar, Actions, children }) => {
+    const { auth } = usePage().props;
+
+    return (
+        <div className="app">
+            <AppHeader auth={auth} />
+            <div className="app-wrapper">
+                <div className="app-main">{children}</div>
+            </div>
+        </div>
+    );
+};

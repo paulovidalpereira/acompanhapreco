@@ -1,5 +1,8 @@
+import { withAppLayout } from "@/hoc/withAppLayout";
 import { CreateView } from "@/Modules/Stores/views/CreateView";
 
-export default function Create(props) {
+const Create = (props) => {
     return <CreateView {...props} />;
-}
+};
+
+export default withAppLayout(Create, "Nova Loja");

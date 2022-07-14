@@ -1,10 +1,9 @@
 import { Link } from "@inertiajs/inertia-react";
-import App from "@/Layouts/App";
+import * as dateFns from "date-fns";
 import DataGrid from "@/Components/DataGrid";
 import { FiIcon } from "@/Components/FiIcon";
 import { Empty } from "@/Components/Empty";
 import Dropdown from "@/Components/Dropdown";
-import * as dateFns from "date-fns";
 
 const StatusCell = (value) => {
     return (
@@ -74,24 +73,17 @@ export const IndexView = (props) => {
     ];
 
     return (
-        <App
-            auth={props.auth}
-            errors={props.errors}
-            title="Gerenciar Produtos"
-            Actions={Actions}
-        >
-            <div className="bg-white shadow-sm">
-                {products.total > 0 ? (
-                    <DataGrid
-                        columns={columns}
-                        page={products}
-                        lineActions={lineActions}
-                        dataKey="products"
-                    />
-                ) : (
-                    <Empty>Nenhum produto cadastrado</Empty>
-                )}
-            </div>
-        </App>
+        <div>
+            {products.total > 0 ? (
+                <DataGrid
+                    columns={columns}
+                    page={products}
+                    lineActions={lineActions}
+                    dataKey="products"
+                />
+            ) : (
+                <Empty>Nenhum produto cadastrado</Empty>
+            )}
+        </div>
     );
 };

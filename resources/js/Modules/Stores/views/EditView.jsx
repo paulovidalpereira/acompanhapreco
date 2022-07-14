@@ -23,18 +23,14 @@ export const EditView = (props) => {
     };
 
     return (
-        <App auth={props.auth} title="Editar Loja">
-            <div className="bg-white overflow-hidden shadow-sm">
-                <div className="p-4 bg-white border-b border-gray-200">
-                    <Form
-                        data={data}
-                        errors={errors}
-                        processing={processing}
-                        handleSubmit={onHandleSubmit}
-                        handleChange={onHandleChange}
-                    />
-                </div>
-            </div>
-        </App>
+        <div>
+            <Form
+                data={data}
+                errors={errors}
+                processing={processing}
+                handleSubmit={onHandleSubmit}
+                handleChange={onHandleChange}
+            />
+        </div>
     );
 };

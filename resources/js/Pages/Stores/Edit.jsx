@@ -1,5 +1,8 @@
+import { withAppLayout } from "@/hoc/withAppLayout";
 import { EditView } from "@/Modules/Stores/views/EditView";
 
-export default function Edit(props) {
+const Edit = (props) => {
     return <EditView {...props} />;
-}
+};
+
+export default withAppLayout(Edit, "Editar Loja");

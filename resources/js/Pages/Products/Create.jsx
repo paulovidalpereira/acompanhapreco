@@ -1,5 +1,8 @@
-import { CreateView } from "@/Modules/Products/views/CreateView";
+import { withAppLayout } from "@/hoc/withAppLayout";
+import { CreateContainer } from "@/Modules/Products/containers/CreateContainer";
 
-export default function Create(props) {
-    return <CreateView {...props} />;
-}
+const Create = (props) => {
+    return <CreateContainer {...props} />;
+};
+
+export default withAppLayout(Create);

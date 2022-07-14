@@ -1,5 +1,4 @@
 import { useForm } from "@inertiajs/inertia-react";
-import App from "@/Layouts/App";
 import { Form } from "../components/Form";
 
 export const CreateView = (props) => {
@@ -23,18 +22,14 @@ export const CreateView = (props) => {
     };
 
     return (
-        <App auth={props.auth} title="Nova Loja">
-            <div className="bg-white overflow-hidden shadow-sm">
-                <div className="p-4 bg-white border-b border-gray-200">
-                    <Form
-                        data={data}
-                        errors={errors}
-                        processing={processing}
-                        handleSubmit={onHandleSubmit}
-                        handleChange={onHandleChange}
-                    />
-                </div>
-            </div>
-        </App>
+        <div>
+            <Form
+                data={data}
+                errors={errors}
+                processing={processing}
+                handleSubmit={onHandleSubmit}
+                handleChange={onHandleChange}
+            />
+        </div>
     );
 };
