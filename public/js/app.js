@@ -5780,6 +5780,112 @@ var Form = function Form(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Modules/Stores/containers/CreateContainer.jsx":
+/*!********************************************************************!*\
+  !*** ./resources/js/Modules/Stores/containers/CreateContainer.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CreateContainer": () => (/* binding */ CreateContainer)
+/* harmony export */ });
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _views_CreateView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/CreateView */ "./resources/js/Modules/Stores/views/CreateView.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var CreateContainer = function CreateContainer(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
+    title: "Novo Produto",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_views_CreateView__WEBPACK_IMPORTED_MODULE_1__.CreateView, _objectSpread({}, props))
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Modules/Stores/containers/EditContainer.jsx":
+/*!******************************************************************!*\
+  !*** ./resources/js/Modules/Stores/containers/EditContainer.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EditContainer": () => (/* binding */ EditContainer)
+/* harmony export */ });
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _views_EditView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/EditView */ "./resources/js/Modules/Stores/views/EditView.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var EditContainer = function EditContainer(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
+    title: "Editar Loja",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_views_EditView__WEBPACK_IMPORTED_MODULE_1__.EditView, _objectSpread({}, props))
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Modules/Stores/containers/IndexContainer.jsx":
+/*!*******************************************************************!*\
+  !*** ./resources/js/Modules/Stores/containers/IndexContainer.jsx ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "IndexContainer": () => (/* binding */ IndexContainer)
+/* harmony export */ });
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _views_IndexView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/IndexView */ "./resources/js/Modules/Stores/views/IndexView.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Actions = function Actions() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+    className: "btn btn--primary",
+    type: "button",
+    children: "Nova Loja"
+  });
+};
+
+var IndexContainer = function IndexContainer(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
+    title: "Gerenciar Lojas",
+    Actions: Actions,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_views_IndexView__WEBPACK_IMPORTED_MODULE_1__.IndexView, _objectSpread({}, props))
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/Modules/Stores/views/CreateView.jsx":
 /*!**********************************************************!*\
   !*** ./resources/js/Modules/Stores/views/CreateView.jsx ***!
@@ -5937,10 +6043,10 @@ __webpack_require__.r(__webpack_exports__);
 var StatusCell = function StatusCell(value) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
     children: value === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-      "class": "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-green-100 text-green-800",
+      className: "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-green-100 text-green-800",
       children: "Ativo"
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-      "class": "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-red-100 text-red-800",
+      className: "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-red-100 text-red-800",
       children: "Desativado"
     })
   });
@@ -6780,7 +6886,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/hoc/withAppLayout */ "./resources/js/hoc/withAppLayout.jsx");
-/* harmony import */ var _Modules_Stores_views_CreateView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/views/CreateView */ "./resources/js/Modules/Stores/views/CreateView.jsx");
+/* harmony import */ var _Modules_Stores_containers_CreateContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/containers/CreateContainer */ "./resources/js/Modules/Stores/containers/CreateContainer.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -6793,10 +6899,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Create = function Create(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_views_CreateView__WEBPACK_IMPORTED_MODULE_1__.CreateView, _objectSpread({}, props));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_containers_CreateContainer__WEBPACK_IMPORTED_MODULE_1__.CreateContainer, _objectSpread({}, props));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Create, "Nova Loja"));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Create));
 
 /***/ }),
 
@@ -6812,7 +6918,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/hoc/withAppLayout */ "./resources/js/hoc/withAppLayout.jsx");
-/* harmony import */ var _Modules_Stores_views_EditView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/views/EditView */ "./resources/js/Modules/Stores/views/EditView.jsx");
+/* harmony import */ var _Modules_Stores_containers_EditContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/containers/EditContainer */ "./resources/js/Modules/Stores/containers/EditContainer.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -6825,10 +6931,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Edit = function Edit(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_views_EditView__WEBPACK_IMPORTED_MODULE_1__.EditView, _objectSpread({}, props));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_containers_EditContainer__WEBPACK_IMPORTED_MODULE_1__.EditContainer, _objectSpread({}, props));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Edit, "Editar Loja"));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Edit));
 
 /***/ }),
 
@@ -6844,7 +6950,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/hoc/withAppLayout */ "./resources/js/hoc/withAppLayout.jsx");
-/* harmony import */ var _Modules_Stores_views_IndexView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/views/IndexView */ "./resources/js/Modules/Stores/views/IndexView.jsx");
+/* harmony import */ var _Modules_Stores_containers_IndexContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Modules/Stores/containers/IndexContainer */ "./resources/js/Modules/Stores/containers/IndexContainer.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -6857,10 +6963,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var Index = function Index(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_views_IndexView__WEBPACK_IMPORTED_MODULE_1__.IndexView, _objectSpread({}, props));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Stores_containers_IndexContainer__WEBPACK_IMPORTED_MODULE_1__.IndexContainer, _objectSpread({}, props));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Index, "Gerenciar Lojas"));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_hoc_withAppLayout__WEBPACK_IMPORTED_MODULE_0__.withAppLayout)(Index));
 
 /***/ }),
 

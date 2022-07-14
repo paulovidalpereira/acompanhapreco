@@ -1,8 +1,8 @@
 import { withAppLayout } from "@/hoc/withAppLayout";
-import { IndexView } from "@/Modules/Stores/views/IndexView";
+import { IndexContainer } from "@/Modules/Stores/containers/IndexContainer";
 
 const Index = (props) => {
-    return <IndexView {...props} />;
+    return <IndexContainer {...props} />;
 };
 
-export default withAppLayout(Index, "Gerenciar Lojas");
+export default withAppLayout(Index);

@@ -9,11 +9,11 @@ const StatusCell = (value) => {
     return (
         <span>
             {value === 1 ? (
-                <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-green-100 text-green-800">
+                <span className="inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-green-100 text-green-800">
                     Ativo
                 </span>
             ) : (
-                <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-red-100 text-red-800">
+                <span className="inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-red-100 text-red-800">
                     Desativado
                 </span>
             )}
