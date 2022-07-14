@@ -1,5 +1,5 @@
-import { IndexView } from "@/Modules/Products/views/IndexView";
 import { Page } from "@/Layouts/App";
+import { IndexView } from "../views/IndexView";
 
 const Actions = () => {
 	return (

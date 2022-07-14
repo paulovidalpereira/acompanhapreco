@@ -5396,8 +5396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CreateContainer": () => (/* binding */ CreateContainer)
 /* harmony export */ });
-/* harmony import */ var _Modules_Products_views_CreateView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Modules/Products/views/CreateView */ "./resources/js/Modules/Products/views/CreateView.jsx");
-/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '.../views/CreateView'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -5409,9 +5409,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var CreateContainer = function CreateContainer(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_1__.Page, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Novo Produto",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Products_views_CreateView__WEBPACK_IMPORTED_MODULE_0__.CreateView, _objectSpread({}, props))
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '.../views/CreateView'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), _objectSpread({}, props))
   });
 };
 
@@ -5460,8 +5460,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "IndexContainer": () => (/* binding */ IndexContainer)
 /* harmony export */ });
-/* harmony import */ var _Modules_Products_views_IndexView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Modules/Products/views/IndexView */ "./resources/js/Modules/Products/views/IndexView.jsx");
-/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
+/* harmony import */ var _views_IndexView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/IndexView */ "./resources/js/Modules/Products/views/IndexView.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -5482,79 +5482,10 @@ var Actions = function Actions() {
 };
 
 var IndexContainer = function IndexContainer(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_1__.Page, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Gerenciar Produtos",
     Actions: Actions,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Modules_Products_views_IndexView__WEBPACK_IMPORTED_MODULE_0__.IndexView, _objectSpread({}, props))
-  });
-};
-
-/***/ }),
-
-/***/ "./resources/js/Modules/Products/views/CreateView.jsx":
-/*!************************************************************!*\
-  !*** ./resources/js/Modules/Products/views/CreateView.jsx ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CreateView": () => (/* binding */ CreateView)
-/* harmony export */ });
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Form */ "./resources/js/Modules/Products/components/Form.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-var CreateView = function CreateView(props) {
-  var stores = props.stores;
-  var product = {
-    name: null,
-    url: null,
-    store_id: null,
-    status: 0
-  };
-
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)(product),
-      data = _useForm.data,
-      setData = _useForm.setData,
-      post = _useForm.post,
-      processing = _useForm.processing,
-      errors = _useForm.errors;
-
-  var onHandleChange = function onHandleChange(e) {
-    setData(function (values) {
-      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.type === "checkbox" ? e.target.checked : e.target.value));
-    });
-  };
-
-  var onHandleSubmit = function onHandleSubmit(e) {
-    e.preventDefault();
-    console.log({
-      data: data
-    });
-    post(route("products.store"), data);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Form__WEBPACK_IMPORTED_MODULE_1__.Form, {
-      data: data,
-      errors: errors,
-      processing: processing,
-      handleSubmit: onHandleSubmit,
-      handleChange: onHandleChange,
-      sources: {
-        stores: stores
-      }
-    })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_views_IndexView__WEBPACK_IMPORTED_MODULE_1__.IndexView, _objectSpread({}, props))
   });
 };
 

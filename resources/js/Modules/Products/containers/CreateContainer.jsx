@@ -1,5 +1,5 @@
-import { CreateView } from "@/Modules/Products/views/CreateView";
 import { Page } from "@/Layouts/App";
+import { CreateView } from ".../views/CreateView";
 
 export const CreateContainer = (props) => {
 	return (
