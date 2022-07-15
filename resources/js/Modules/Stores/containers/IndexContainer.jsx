@@ -1,18 +1,24 @@
+import { Link } from "@inertiajs/inertia-react";
 import { Page } from "@/Layouts/App";
+import { FiIcon } from "@/Components/FiIcon";
 import { IndexView } from "../views/IndexView";
 
 const Actions = () => {
-	return (
-		<button className="btn btn--primary" type="button">
-			Nova Loja
-		</button>
-	);
+    return (
+        <Link
+            as="button"
+            href={route("stores.create")}
+            className="btn btn--primary"
+        >
+            <FiIcon as="FiPlusSquare" /> <span>Nova Loja</span>
+        </Link>
+    );
 };
 
-export const IndexContainer = (props) => {
-	return (
-		<Page title="Gerenciar Lojas" Actions={Actions}>
-			<IndexView {...props} />
-		</Page>
-	);
+export const IndexContainer = ({ stores }) => {
+    return (
+        <Page title="Gerenciar Lojas" Actions={Actions}>
+            <IndexView stores={stores} />
+        </Page>
+    );
 };

@@ -1,0 +1,27 @@
+.page {
+    @apply flex flex-row flex-1;
+}
+
+.page-sidebar {
+    @apply bg-white w-2/12 border-r border-gray-200 p-4;
+}
+
+.page-wrapper {
+    @apply flex-1;
+}
+
+.page-header {
+    @apply bg-white border-b border-gray-200 h-14 px-4 flex justify-between items-center;
+}
+
+.page-title {
+    @apply font-semibold text-xl text-gray-800 leading-tight;
+}
+
+.page-actions {
+    @apply flex flex-row gap-2;
+}
+
+.page-content {
+    @apply p-4 bg-white border-b border-gray-200;
+}

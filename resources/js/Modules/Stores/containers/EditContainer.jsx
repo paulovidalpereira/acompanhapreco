@@ -1,10 +1,20 @@
 import { Page } from "@/Layouts/App";
 import { EditView } from "../views/EditView";
+import { ViewModel } from "../views/ViewModel";
 
-export const EditContainer = (props) => {
+export const EditContainer = ({ store }) => {
+	const { data, errors, processing, onHandleSubmit, onHandleChange } =
+		ViewModel(store);
+
 	return (
 		<Page title="Editar Loja">
-			<EditView {...props} />
+			<EditView
+				data={data}
+				errors={errors}
+				processing={processing}
+				onHandleSubmit={onHandleSubmit}
+				onHandleChange={onHandleChange}
+			/>
 		</Page>
 	);
 };

@@ -57,9 +57,7 @@ const lineActions = (row) => {
     );
 };
 
-export const IndexView = (props) => {
-    const { stores } = props;
-
+export const IndexView = ({ stores }) => {
     const columns = [
         { accessor: "id", label: "#" },
         { accessor: "name", label: "Loja" },

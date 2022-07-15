@@ -36,34 +36,54 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                 </div>
                 <Pagination page={page} />
             </div>
-            <table className="w-full">
-                <thead>
-                    <tr>
-                        {columns.map((col) => (
-                            <td key={col.accessor}>
-                                <span>{col.label}</span>
-                                {route().params.sort === col.accessor &&
-                                    route().params.dir === "asc" && (
-                                        <Link
-                                            className="btn btn--small"
-                                            href={route("stores.index")}
-                                            data={{
-                                                sort: col.accessor,
-                                                dir: "desc",
-                                            }}
-                                            only={[dataKey]}
-                                        >
-                                            <BiIcon
-                                                as="BiSortDown"
-                                                style={{
-                                                    width: "16px",
-                                                    height: "16px",
+            <div className="-mx-4">
+                <table className="w-full">
+                    <thead>
+                        <tr>
+                            {columns.map((col) => (
+                                <td key={col.accessor}>
+                                    <span>{col.label}</span>
+                                    {route().params.sort === col.accessor &&
+                                        route().params.dir === "asc" && (
+                                            <Link
+                                                className="btn btn--small"
+                                                href={route("stores.index")}
+                                                data={{
+                                                    sort: col.accessor,
+                                                    dir: "desc",
                                                 }}
-                                            />
-                                        </Link>
-                                    )}
-                                {route().params.sort === col.accessor &&
-                                    route().params.dir === "desc" && (
+                                                only={[dataKey]}
+                                            >
+                                                <BiIcon
+                                                    as="BiSortDown"
+                                                    style={{
+                                                        width: "16px",
+                                                        height: "16px",
+                                                    }}
+                                                />
+                                            </Link>
+                                        )}
+                                    {route().params.sort === col.accessor &&
+                                        route().params.dir === "desc" && (
+                                            <Link
+                                                className="btn btn--small"
+                                                href={route("stores.index")}
+                                                data={{
+                                                    sort: col.accessor,
+                                                    dir: "asc",
+                                                }}
+                                                only={[dataKey]}
+                                            >
+                                                <BiIcon
+                                                    as="BiSortUp"
+                                                    style={{
+                                                        width: "16px",
+                                                        height: "16px",
+                                                    }}
+                                                />
+                                            </Link>
+                                        )}
+                                    {route().params.sort !== col.accessor && (
                                         <Link
                                             className="btn btn--small"
                                             href={route("stores.index")}
@@ -74,7 +94,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                             only={[dataKey]}
                                         >
                                             <BiIcon
-                                                as="BiSortUp"
+                                                as="BiSort"
                                                 style={{
                                                     width: "16px",
                                                     height: "16px",
@@ -82,54 +102,38 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                             />
                                         </Link>
                                     )}
-                                {route().params.sort !== col.accessor && (
-                                    <Link
-                                        className="btn btn--small"
-                                        href={route("stores.index")}
-                                        data={{
-                                            sort: col.accessor,
-                                            dir: "asc",
-                                        }}
-                                        only={[dataKey]}
-                                    >
-                                        <BiIcon
-                                            as="BiSort"
-                                            style={{
-                                                width: "16px",
-                                                height: "16px",
-                                            }}
-                                        />
-                                    </Link>
-                                )}
-                            </td>
-                        ))}
-                        {lineActions && <td className="actions"></td>}
-                    </tr>
-                </thead>
-                <tbody>
-                    {page.data.map((item) => (
-                        <tr key={item.id}>
-                            {columns.map((col) => {
-                                if (col.Cell) {
+                                </td>
+                            ))}
+                            {lineActions && <td className="actions"></td>}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {page.data.map((item) => (
+                            <tr key={item.id}>
+                                {columns.map((col) => {
+                                    if (col.Cell) {
+                                        return (
+                                            <td key={col.accessor}>
+                                                {col.Cell(item[col.accessor])}
+                                            </td>
+                                        );
+                                    }
                                     return (
                                         <td key={col.accessor}>
-                                            {col.Cell(item[col.accessor])}
+                                            {item[col.accessor]}
                                         </td>
                                     );
-                                }
-                                return (
-                                    <td key={col.accessor}>
-                                        {item[col.accessor]}
+                                })}
+                                {lineActions && (
+                                    <td className="actions">
+                                        {lineActions(item)}
                                     </td>
-                                );
-                            })}
-                            {lineActions && (
-                                <td className="actions">{lineActions(item)}</td>
-                            )}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                                )}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 }

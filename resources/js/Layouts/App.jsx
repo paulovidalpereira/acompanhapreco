@@ -5,7 +5,8 @@ import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 
-const AppHeader = ({ auth }) => {
+const AppHeader = () => {
+    const { auth } = usePage().props;
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -187,11 +188,9 @@ export const Page = ({ title, Sidebar, Actions, children }) => {
 };
 
 export const App = ({ title, Sidebar, Actions, children }) => {
-    const { auth } = usePage().props;
-
     return (
         <div className="app">
-            <AppHeader auth={auth} />
+            <AppHeader />
             <div className="app-wrapper">
                 <div className="app-main">{children}</div>
             </div>

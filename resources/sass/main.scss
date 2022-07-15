@@ -1,0 +1,11 @@
+/* ./resources/sass/app.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "fonts";
+@import "base";
+@import "app";
+@import "page";
+@import "button";
+@import "form";
