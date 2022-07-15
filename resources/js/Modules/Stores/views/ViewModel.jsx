@@ -1,7 +1,8 @@
 import { useForm } from "@inertiajs/inertia-react";
 
-export const ViewModel = (INITIAL_VALUES) => {
-    const { data, setData, post, processing, errors } = useForm(INITIAL_VALUES);
+export const ViewModel = (INITIAL_STATE) => {
+    const { data, setData, post, put, processing, errors } =
+        useForm(INITIAL_STATE);
 
     const onHandleChange = (e) => {
         setData((values) => ({

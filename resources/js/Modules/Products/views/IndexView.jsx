@@ -1,6 +1,6 @@
 import { Link } from "@inertiajs/inertia-react";
 import * as dateFns from "date-fns";
-import DataGrid from "@/Components/DataGrid";
+import { DataGrid } from "@/Components/DataGrid";
 import { FiIcon } from "@/Components/FiIcon";
 import { Empty } from "@/Components/Empty";
 import Dropdown from "@/Components/Dropdown";

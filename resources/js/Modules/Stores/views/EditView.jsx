@@ -1,6 +1,6 @@
 import App from "@/Layouts/App";
 import { useForm } from "@inertiajs/inertia-react";
-import { Form } from "../components/Form";
+import { StoreForm } from "../components/StoreForm";
 
 export const EditView = ({
     data,
@@ -10,14 +10,12 @@ export const EditView = ({
     onHandleChange,
 }) => {
     return (
-        <div>
-            <Form
-                data={data}
-                errors={errors}
-                processing={processing}
-                handleSubmit={onHandleSubmit}
-                handleChange={onHandleChange}
-            />
-        </div>
+        <StoreForm
+            data={data}
+            errors={errors}
+            processing={processing}
+            handleSubmit={onHandleSubmit}
+            handleChange={onHandleChange}
+        />
     );
 };

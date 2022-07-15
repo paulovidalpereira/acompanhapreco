@@ -3,7 +3,7 @@ import Input from "@/Components/Input";
 import Label from "@/Components/Label";
 import Button from "@/Components/Button";
 
-export const Form = ({
+export const StoreForm = ({
     data,
     errors,
     processing,

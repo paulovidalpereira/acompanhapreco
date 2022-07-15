@@ -5,7 +5,7 @@ import { FiIcon } from "@/Components/FiIcon";
 import { Pagination } from "@/Components/Pagination";
 import Dropdown from "@/Components/Dropdown";
 
-export default function DataGrid({ columns, page, lineActions, dataKey }) {
+export const DataGrid = ({ columns, page, lineActions, dataKey }) => {
     return (
         <>
             <div className="flex justify-between items-center">
@@ -53,6 +53,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                                     dir: "desc",
                                                 }}
                                                 only={[dataKey]}
+                                                preserveState
                                             >
                                                 <BiIcon
                                                     as="BiSortDown"
@@ -73,6 +74,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                                     dir: "asc",
                                                 }}
                                                 only={[dataKey]}
+                                                preserveState
                                             >
                                                 <BiIcon
                                                     as="BiSortUp"
@@ -92,6 +94,7 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
                                                 dir: "asc",
                                             }}
                                             only={[dataKey]}
+                                            preserveState
                                         >
                                             <BiIcon
                                                 as="BiSort"
@@ -136,4 +139,4 @@ export default function DataGrid({ columns, page, lineActions, dataKey }) {
             </div>
         </>
     );
-}
+};

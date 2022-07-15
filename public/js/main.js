@@ -4377,16 +4377,16 @@ function Checkbox(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/Components/DataGrid.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/Components/DataGrid.jsx ***!
-  \**********************************************/
+/***/ "./resources/js/Components/DataGrid/DataGrid.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/Components/DataGrid/DataGrid.jsx ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ DataGrid)
+/* harmony export */   "DataGrid": () => (/* binding */ DataGrid)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
@@ -4404,7 +4404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function DataGrid(_ref) {
+var DataGrid = function DataGrid(_ref) {
   var columns = _ref.columns,
       page = _ref.page,
       lineActions = _ref.lineActions,
@@ -4447,6 +4447,7 @@ function DataGrid(_ref) {
                     dir: "desc"
                   },
                   only: [dataKey],
+                  preserveState: true,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
                     as: "BiSortDown",
                     style: {
@@ -4462,6 +4463,7 @@ function DataGrid(_ref) {
                     dir: "asc"
                   },
                   only: [dataKey],
+                  preserveState: true,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
                     as: "BiSortUp",
                     style: {
@@ -4477,6 +4479,7 @@ function DataGrid(_ref) {
                     dir: "asc"
                   },
                   only: [dataKey],
+                  preserveState: true,
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
                     as: "BiSort",
                     style: {
@@ -4513,7 +4516,23 @@ function DataGrid(_ref) {
       })
     })]
   });
-}
+};
+
+/***/ }),
+
+/***/ "./resources/js/Components/DataGrid/index.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/Components/DataGrid/index.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DataGrid": () => (/* reexport safe */ _DataGrid__WEBPACK_IMPORTED_MODULE_0__.DataGrid)
+/* harmony export */ });
+/* harmony import */ var _DataGrid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DataGrid */ "./resources/js/Components/DataGrid/DataGrid.jsx");
+
 
 /***/ }),
 
@@ -5637,7 +5656,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid.jsx");
+/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid/index.jsx");
 /* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
 /* harmony import */ var _Components_Empty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Empty */ "./resources/js/Components/Empty.jsx");
 /* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown.jsx");
@@ -5726,7 +5745,7 @@ var IndexView = function IndexView(props) {
     Cell: DateTimeCell
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    children: products.total > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: products.total > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
       columns: columns,
       page: products,
       lineActions: lineActions,
@@ -5739,16 +5758,16 @@ var IndexView = function IndexView(props) {
 
 /***/ }),
 
-/***/ "./resources/js/Modules/Stores/components/Form.jsx":
-/*!*********************************************************!*\
-  !*** ./resources/js/Modules/Stores/components/Form.jsx ***!
-  \*********************************************************/
+/***/ "./resources/js/Modules/Stores/components/StoreForm.jsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/Modules/Stores/components/StoreForm.jsx ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Form": () => (/* binding */ Form)
+/* harmony export */   "StoreForm": () => (/* binding */ StoreForm)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.jsx");
@@ -5761,7 +5780,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Form = function Form(_ref) {
+var StoreForm = function StoreForm(_ref) {
   var data = _ref.data,
       errors = _ref.errors,
       processing = _ref.processing,
@@ -5953,34 +5972,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
 /* harmony import */ var _views_IndexView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/IndexView */ "./resources/js/Modules/Stores/views/IndexView.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _views_IndexViewModel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/IndexViewModel */ "./resources/js/Modules/Stores/views/IndexViewModel.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
-
-
-var Actions = function Actions() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-    as: "button",
-    href: route("stores.create"),
-    className: "btn btn--primary",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__.FiIcon, {
-      as: "FiPlusSquare"
-    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-      children: "Nova Loja"
-    })]
-  });
-};
 
 var IndexContainer = function IndexContainer(_ref) {
   var stores = _ref.stores;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_1__.Page, {
+
+  var _IndexViewModel = (0,_views_IndexViewModel__WEBPACK_IMPORTED_MODULE_4__.IndexViewModel)(),
+      columns = _IndexViewModel.columns,
+      lineActions = _IndexViewModel.lineActions,
+      Actions = _IndexViewModel.Actions;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_1__.Page, {
     title: "Gerenciar Lojas",
     Actions: Actions,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_views_IndexView__WEBPACK_IMPORTED_MODULE_3__.IndexView, {
-      stores: stores
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_views_IndexView__WEBPACK_IMPORTED_MODULE_3__.IndexView, {
+      stores: stores,
+      columns: columns,
+      lineActions: lineActions,
+      Actions: Actions
     })
   });
 };
@@ -5998,7 +6013,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CreateView": () => (/* binding */ CreateView)
 /* harmony export */ });
-/* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Form */ "./resources/js/Modules/Stores/components/Form.jsx");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../components/Form'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -6009,7 +6024,7 @@ var CreateView = function CreateView(_ref) {
       onHandleSubmit = _ref.onHandleSubmit,
       onHandleChange = _ref.onHandleChange;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_Form__WEBPACK_IMPORTED_MODULE_0__.Form, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../components/Form'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
       data: data,
       errors: errors,
       processing: processing,
@@ -6034,7 +6049,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Form */ "./resources/js/Modules/Stores/components/Form.jsx");
+/* harmony import */ var _components_StoreForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/StoreForm */ "./resources/js/Modules/Stores/components/StoreForm.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -6046,14 +6061,12 @@ var EditView = function EditView(_ref) {
       processing = _ref.processing,
       onHandleSubmit = _ref.onHandleSubmit,
       onHandleChange = _ref.onHandleChange;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Form__WEBPACK_IMPORTED_MODULE_2__.Form, {
-      data: data,
-      errors: errors,
-      processing: processing,
-      handleSubmit: onHandleSubmit,
-      handleChange: onHandleChange
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_StoreForm__WEBPACK_IMPORTED_MODULE_2__.StoreForm, {
+    data: data,
+    errors: errors,
+    processing: processing,
+    handleSubmit: onHandleSubmit,
+    handleChange: onHandleChange
   });
 };
 
@@ -6071,11 +6084,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IndexView": () => (/* binding */ IndexView)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid.jsx");
+/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid/index.jsx");
 /* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
 /* harmony import */ var _Components_Empty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Empty */ "./resources/js/Components/Empty.jsx");
 /* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown.jsx");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -6084,14 +6096,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var IndexView = function IndexView(_ref) {
+  var stores = _ref.stores,
+      columns = _ref.columns,
+      lineActions = _ref.lineActions;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: stores.total > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__.DataGrid, {
+      columns: columns,
+      page: stores,
+      lineActions: lineActions,
+      dataKey: "stores"
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Empty__WEBPACK_IMPORTED_MODULE_3__.Empty, {
+      children: "Nenhuma loja cadastrada"
+    })
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Modules/Stores/views/IndexViewModel.jsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/Modules/Stores/views/IndexViewModel.jsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "IndexViewModel": () => (/* binding */ IndexViewModel)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
+/* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown.jsx");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
 
 
 var StatusCell = function StatusCell(value) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-    children: value === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    children: value === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-green-100 text-green-800",
       children: "Ativo"
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
       className: "inline-flex items-center gap-1.5 py-1 px-3 rounded-md text-xs font-medium bg-red-100 text-red-800",
       children: "Desativado"
     })
@@ -6099,35 +6150,40 @@ var StatusCell = function StatusCell(value) {
 };
 
 var DateTimeCell = function DateTimeCell(value) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-    children: date_fns__WEBPACK_IMPORTED_MODULE_6__["default"](new Date(value), "dd/MM/yyyy H:mm:ss")
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    children: (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(value), "dd/MM/yyyy H:mm:ss")
   });
 };
 
 var Actions = function Actions() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+    as: "button",
     href: route("stores.create"),
     className: "btn btn--primary",
-    children: "Nova Loja"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_FiIcon__WEBPACK_IMPORTED_MODULE_1__.FiIcon, {
+      as: "FiPlusSquare"
+    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      children: "Nova Loja"
+    })]
   });
 };
 
 var lineActions = function lineActions(row) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__["default"].Trigger, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Trigger, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "button",
         className: "btn",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__.FiIcon, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_FiIcon__WEBPACK_IMPORTED_MODULE_1__.FiIcon, {
           as: "FiMoreVertical"
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__["default"].Content, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__["default"].Link, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Content, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Link, {
         href: route("stores.edit", row.id),
         method: "get",
         children: "Editar"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__["default"].Link, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Link, {
         href: route("stores.destroy", row.id),
         method: "delete",
         as: "button",
@@ -6137,8 +6193,7 @@ var lineActions = function lineActions(row) {
   });
 };
 
-var IndexView = function IndexView(_ref) {
-  var stores = _ref.stores;
+var IndexViewModel = function IndexViewModel() {
   var columns = [{
     accessor: "id",
     label: "#"
@@ -6160,16 +6215,11 @@ var IndexView = function IndexView(_ref) {
     label: "Criado em",
     Cell: DateTimeCell
   }];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    children: stores.total > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      columns: columns,
-      page: stores,
-      lineActions: lineActions,
-      dataKey: "stores"
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Empty__WEBPACK_IMPORTED_MODULE_3__.Empty, {
-      children: "Nenhuma loja cadastrada"
-    })
-  });
+  return {
+    columns: columns,
+    lineActions: lineActions,
+    Actions: Actions
+  };
 };
 
 /***/ }),
@@ -6193,11 +6243,12 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-var ViewModel = function ViewModel(INITIAL_VALUES) {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)(INITIAL_VALUES),
+var ViewModel = function ViewModel(INITIAL_STATE) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)(INITIAL_STATE),
       data = _useForm.data,
       setData = _useForm.setData,
       post = _useForm.post,
+      put = _useForm.put,
       processing = _useForm.processing,
       errors = _useForm.errors;
 

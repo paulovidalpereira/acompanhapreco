@@ -21,11 +21,11 @@ class StoresController extends Controller
             'stores' => function () {
                 return Store::query()
                     ->when(request()->has(['sort', 'dir']), function ($query) {
-                        $query->orderBy(request('sort'), request('dir'));
+                        $query->orderBy(request()->get('sort'), request()->get('dir'));
                     }, function ($query) {
                         $query->orderBy('created_at', 'desc');
                     })
-                    ->fastPaginate()
+                    ->fastPaginate(10)
                     ->withQueryString();
             }
         ]);
