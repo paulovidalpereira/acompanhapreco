@@ -93,12 +93,7 @@ class ProductsController extends Controller
 
         $product->delete();
 
-        return redirect('products')->with([
-            'message' => [
-                'type' => 'success',
-                'text' => 'Product deleted successfully.'
-            ],
-        ]);
+        return redirect('products');
     }
 }
 
