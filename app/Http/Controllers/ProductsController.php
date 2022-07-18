@@ -60,12 +60,7 @@ class ProductsController extends Controller
         $product = new Product($request->only('name', 'url', 'status', 'store_id'));
         $product->store()->associate($store)->save();
 
-        return redirect('products')->with([
-            'message' => [
-                'type' => 'success',
-                'text' => 'Product created successfully.',
-            ],
-        ]);
+        return redirect('products');
     }
 
     public function edit($id)
@@ -89,12 +84,7 @@ class ProductsController extends Controller
         $product->fill($request->only('name', 'url', 'status', 'store_id'));
         $product->store()->associate($store)->save();
 
-        return redirect('products')->with([
-            'message' => [
-                'type' => 'success',
-                'text' => 'Product successfully updated.',
-            ],
-        ]);
+        return redirect('products');
     }
 
     public function destroy($id)

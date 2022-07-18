@@ -2,7 +2,7 @@ import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
 
-export const ViewModel = (INITIAL_STATE) => {
+export const FormViewModel = (INITIAL_STATE) => {
     const { data, setData, processing, errors } = useForm(INITIAL_STATE);
 
     const onHandleChange = (e) => {

@@ -5286,8 +5286,8 @@ var App = function App(_ref2) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_6__.ToastContainer, {
       position: "bottom-center" // theme="colored"
       // hideProgressBar
-      // pauseOnFocusLoss={false}
       ,
+      pauseOnFocusLoss: false,
       transition: react_toastify__WEBPACK_IMPORTED_MODULE_6__.Slide
     })]
   });
@@ -5996,24 +5996,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _views_CreateView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/CreateView */ "./resources/js/Modules/Stores/views/CreateView.jsx");
-/* harmony import */ var _views_ViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/ViewModel */ "./resources/js/Modules/Stores/views/ViewModel.jsx");
+/* harmony import */ var _views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/FormViewModel */ "./resources/js/Modules/Stores/views/FormViewModel.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 var CreateContainer = function CreateContainer(props) {
-  var _ViewModel = (0,_views_ViewModel__WEBPACK_IMPORTED_MODULE_2__.ViewModel)({
+  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)({
     name: "",
     domain: "",
     "class": "",
     status: 0
   }),
-      data = _ViewModel.data,
-      errors = _ViewModel.errors,
-      processing = _ViewModel.processing,
-      onHandleChange = _ViewModel.onHandleChange,
-      onHandleCreateSubmit = _ViewModel.onHandleCreateSubmit;
+      data = _FormViewModel.data,
+      errors = _FormViewModel.errors,
+      processing = _FormViewModel.processing,
+      onHandleChange = _FormViewModel.onHandleChange,
+      onHandleCreateSubmit = _FormViewModel.onHandleCreateSubmit;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Nova Loja",
@@ -6042,7 +6042,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _views_EditView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/EditView */ "./resources/js/Modules/Stores/views/EditView.jsx");
-/* harmony import */ var _views_ViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/ViewModel */ "./resources/js/Modules/Stores/views/ViewModel.jsx");
+/* harmony import */ var _views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/FormViewModel */ "./resources/js/Modules/Stores/views/FormViewModel.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -6051,12 +6051,12 @@ __webpack_require__.r(__webpack_exports__);
 var EditContainer = function EditContainer(_ref) {
   var store = _ref.store;
 
-  var _ViewModel = (0,_views_ViewModel__WEBPACK_IMPORTED_MODULE_2__.ViewModel)(store),
-      data = _ViewModel.data,
-      errors = _ViewModel.errors,
-      processing = _ViewModel.processing,
-      onHandleChange = _ViewModel.onHandleChange,
-      onHandleUpdateSubmit = _ViewModel.onHandleUpdateSubmit;
+  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)(store),
+      data = _FormViewModel.data,
+      errors = _FormViewModel.errors,
+      processing = _FormViewModel.processing,
+      onHandleChange = _FormViewModel.onHandleChange,
+      onHandleUpdateSubmit = _FormViewModel.onHandleUpdateSubmit;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Editar Loja",
@@ -6173,6 +6173,77 @@ var EditView = function EditView(_ref) {
     handleChange: onHandleChange,
     handleSubmit: onHandleSubmit
   });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Modules/Stores/views/FormViewModel.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/Modules/Stores/views/FormViewModel.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FormViewModel": () => (/* binding */ FormViewModel)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var FormViewModel = function FormViewModel(INITIAL_STATE) {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)(INITIAL_STATE),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  var onHandleChange = function onHandleChange(e) {
+    setData(function (values) {
+      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.type === "checkbox" ? e.target.checked : e.target.value));
+    });
+  };
+
+  var onHandleUpdateSubmit = function onHandleUpdateSubmit(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.put(route("stores.update", INITIAL_STATE.id), data, {
+      onSuccess: function onSuccess() {
+        console.log("updated");
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja atualizada com sucesso.");
+      },
+      only: ["stores"]
+    });
+  };
+
+  var onHandleCreateSubmit = function onHandleCreateSubmit(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("stores.store"), data, {
+      onSuccess: function onSuccess() {
+        console.log("created");
+        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja criada com sucesso.");
+      },
+      only: ["stores"]
+    });
+  };
+
+  return {
+    data: data,
+    setData: setData,
+    processing: processing,
+    errors: errors,
+    onHandleChange: onHandleChange,
+    onHandleUpdateSubmit: onHandleUpdateSubmit,
+    onHandleCreateSubmit: onHandleCreateSubmit
+  };
 };
 
 /***/ }),
@@ -6313,77 +6384,6 @@ var IndexViewModel = function IndexViewModel() {
     columns: columns,
     lineActions: lineActions,
     Actions: Actions
-  };
-};
-
-/***/ }),
-
-/***/ "./resources/js/Modules/Stores/views/ViewModel.jsx":
-/*!*********************************************************!*\
-  !*** ./resources/js/Modules/Stores/views/ViewModel.jsx ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ViewModel": () => (/* binding */ ViewModel)
-/* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-var ViewModel = function ViewModel(INITIAL_STATE) {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)(INITIAL_STATE),
-      data = _useForm.data,
-      setData = _useForm.setData,
-      processing = _useForm.processing,
-      errors = _useForm.errors;
-
-  var onHandleChange = function onHandleChange(e) {
-    setData(function (values) {
-      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.type === "checkbox" ? e.target.checked : e.target.value));
-    });
-  };
-
-  var onHandleUpdateSubmit = function onHandleUpdateSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.put(route("stores.update", INITIAL_STATE.id), data, {
-      onSuccess: function onSuccess() {
-        console.log("updated");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja atualizada com sucesso.");
-      },
-      only: ["stores"]
-    });
-  };
-
-  var onHandleCreateSubmit = function onHandleCreateSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("stores.store"), data, {
-      onSuccess: function onSuccess() {
-        console.log("created");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja criada com sucesso.");
-      },
-      only: ["stores"]
-    });
-  };
-
-  return {
-    data: data,
-    setData: setData,
-    processing: processing,
-    errors: errors,
-    onHandleChange: onHandleChange,
-    onHandleUpdateSubmit: onHandleUpdateSubmit,
-    onHandleCreateSubmit: onHandleCreateSubmit
   };
 };
 

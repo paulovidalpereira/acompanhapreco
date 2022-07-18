@@ -189,7 +189,7 @@ export const App = ({ title, Sidebar, Actions, children }) => {
                 position="bottom-center"
                 // theme="colored"
                 // hideProgressBar
-                // pauseOnFocusLoss={false}
+                pauseOnFocusLoss={false}
                 transition={Slide}
             />
         </>
