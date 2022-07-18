@@ -7,7 +7,7 @@ export const CreateContainer = (props) => {
 		ViewModel({ name: "", domain: "", class: "", status: 0 });
 
 	return (
-		<Page title="Novo Produto">
+		<Page title="Nova Loja">
 			<CreateView
 				data={data}
 				errors={errors}

@@ -9,6 +9,7 @@ export const ProductForm = ({
     handleChange,
     sources,
 }) => {
+    console.log({ errors });
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-field">
