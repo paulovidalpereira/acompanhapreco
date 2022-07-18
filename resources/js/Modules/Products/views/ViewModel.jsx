@@ -17,23 +17,23 @@ export const ViewModel = (INITIAL_STATE) => {
 
     const onHandleUpdateSubmit = (e) => {
         e.preventDefault();
-        Inertia.put(route("stores.update", INITIAL_STATE.id), data, {
+        Inertia.put(route("products.update", INITIAL_STATE.id), data, {
             onSuccess: () => {
                 console.log("updated");
-                toast.success("Loja atualizada com sucesso.");
+                toast.success("Produto atualizada com sucesso.");
             },
-            only: ["stores"],
+            only: ["products"],
         });
     };
 
     const onHandleCreateSubmit = (e) => {
         e.preventDefault();
-        Inertia.post(route("stores.store"), data, {
+        Inertia.post(route("products.store"), data, {
             onSuccess: () => {
                 console.log("created");
-                toast.success("Loja criada com sucesso.");
+                toast.success("Produto criada com sucesso.");
             },
-            only: ["stores"],
+            only: ["products"],
         });
     };
 
