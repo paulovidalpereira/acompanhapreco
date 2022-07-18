@@ -20,9 +20,8 @@ export const ViewModel = (INITIAL_STATE) => {
         Inertia.put(route("products.update", INITIAL_STATE.id), data, {
             onSuccess: () => {
                 console.log("updated");
-                toast.success("Produto atualizada com sucesso.");
+                toast.success("Produto atualizado com sucesso.");
             },
-            only: ["products"],
         });
     };
 
@@ -31,9 +30,8 @@ export const ViewModel = (INITIAL_STATE) => {
         Inertia.post(route("products.store"), data, {
             onSuccess: () => {
                 console.log("created");
-                toast.success("Produto criada com sucesso.");
+                toast.success("Produto criado com sucesso.");
             },
-            only: ["products"],
         });
     };
 

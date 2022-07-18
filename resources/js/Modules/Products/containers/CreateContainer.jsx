@@ -4,7 +4,7 @@ import { ViewModel } from "../views/ViewModel";
 
 export const CreateContainer = ({ stores }) => {
 	const { data, errors, processing, onHandleChange, onHandleCreateSubmit } =
-		ViewModel({ name: "", domain: "", class: "", status: 0 });
+		ViewModel({ name: "", url: "", store_id: "", status: 0 });
 
 	return (
 		<Page title="Novo Produto">
