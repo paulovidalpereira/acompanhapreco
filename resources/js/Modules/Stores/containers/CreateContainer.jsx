@@ -3,7 +3,7 @@ import { CreateView } from "../views/CreateView";
 import { ViewModel } from "../views/ViewModel";
 
 export const CreateContainer = (props) => {
-	const { data, errors, processing, onHandleSubmit, onHandleChange } =
+	const { data, errors, processing, onHandleChange, onHandleCreateSubmit } =
 		ViewModel({ name: "", domain: "", class: "", status: 0 });
 
 	return (
@@ -12,8 +12,8 @@ export const CreateContainer = (props) => {
 				data={data}
 				errors={errors}
 				processing={processing}
-				onHandleSubmit={onHandleChange}
 				onHandleChange={onHandleChange}
+				onHandleSubmit={onHandleCreateSubmit}
 			/>
 		</Page>
 	);

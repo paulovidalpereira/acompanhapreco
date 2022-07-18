@@ -1,11 +1,11 @@
 import React from "react";
 
-export default function Button({
+export const Button = ({
     type = "submit",
     className = "",
     processing,
     children,
-}) {
+}) => {
     return (
         <button
             type={type}
@@ -15,4 +15,4 @@ export default function Button({
             {children}
         </button>
     );
-}
+};

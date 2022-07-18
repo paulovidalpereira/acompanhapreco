@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { Link, Head, usePage } from "@inertiajs/inertia-react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
+import {
+    Dropdown,
+    DropdownButton,
+    DropdownContent,
+    DropdownItem,
+} from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { ToastContainer, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppHeader = () => {
     const { auth } = usePage().props;
@@ -49,36 +56,18 @@ const AppHeader = () => {
                         <NavLink>Sistema</NavLink>
                         <div className="ml-3 relative">
                             <Dropdown>
-                                <Dropdown.Trigger>
-                                    <span className="inline-flex rounded-md">
-                                        <button type="button" className="btn">
-                                            {auth.user.name}
-
-                                            <svg
-                                                className="ml-2 -mr-0.5 h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </button>
-                                    </span>
-                                </Dropdown.Trigger>
-
-                                <Dropdown.Content>
-                                    <Dropdown.Link
+                                <DropdownButton>
+                                    {auth.user.name}
+                                </DropdownButton>
+                                <DropdownContent>
+                                    <DropdownItem
                                         href={route("logout")}
                                         method="post"
                                         as="button"
                                     >
                                         Log Out
-                                    </Dropdown.Link>
-                                </Dropdown.Content>
+                                    </DropdownItem>
+                                </DropdownContent>
                             </Dropdown>
                         </div>
                     </div>
@@ -189,11 +178,20 @@ export const Page = ({ title, Sidebar, Actions, children }) => {
 
 export const App = ({ title, Sidebar, Actions, children }) => {
     return (
-        <div className="app">
-            <AppHeader />
-            <div className="app-wrapper">
-                <div className="app-main">{children}</div>
+        <>
+            <div className="app">
+                <AppHeader />
+                <div className="app-wrapper">
+                    <div className="app-main">{children}</div>
+                </div>
             </div>
-        </div>
+            <ToastContainer
+                position="bottom-center"
+                // theme="colored"
+                // hideProgressBar
+                // pauseOnFocusLoss={false}
+                transition={Slide}
+            />
+        </>
     );
 };

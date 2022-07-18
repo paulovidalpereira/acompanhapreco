@@ -1,5 +1,5 @@
 import { useForm } from "@inertiajs/inertia-react";
-import { Form } from "../components/Form";
+import { ProductForm } from "../components/ProductForm";
 
 export const CreateView = (props) => {
     const { stores } = props;
@@ -24,7 +24,7 @@ export const CreateView = (props) => {
 
     return (
         <div>
-            <Form
+            <ProductForm
                 data={data}
                 errors={errors}
                 processing={processing}

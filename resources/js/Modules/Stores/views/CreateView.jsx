@@ -1,21 +1,19 @@
-import { Form } from "../components/Form";
+import { StoreForm } from "../components/StoreForm";
 
 export const CreateView = ({
     data,
     errors,
     processing,
-    onHandleSubmit,
     onHandleChange,
+    onHandleSubmit,
 }) => {
     return (
-        <div>
-            <Form
-                data={data}
-                errors={errors}
-                processing={processing}
-                handleSubmit={onHandleSubmit}
-                handleChange={onHandleChange}
-            />
-        </div>
+        <StoreForm
+            data={data}
+            errors={errors}
+            processing={processing}
+            handleChange={onHandleChange}
+            handleSubmit={onHandleSubmit}
+        />
     );
 };

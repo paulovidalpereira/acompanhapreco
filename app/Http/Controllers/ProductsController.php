@@ -57,7 +57,7 @@ class ProductsController extends Controller
     {
         $store = Store::findOrFail($request->store_id);
 
-        $product = new Product($request->only('name', 'url', 'status'));
+        $product = new Product($request->only('name', 'url', 'status', 'store_id'));
         $product->store()->associate($store)->save();
 
         return redirect('products')->with([
@@ -86,7 +86,7 @@ class ProductsController extends Controller
         $product = Product::findOrFail($id);
         $store = Store::findOrFail($request->store_id);
 
-        $product->fill($request->only('name', 'url', 'status'));
+        $product->fill($request->only('name', 'url', 'status', 'store_id'));
         $product->store()->associate($store)->save();
 
         return redirect('products')->with([

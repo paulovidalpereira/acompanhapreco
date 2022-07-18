@@ -1,0 +1,23 @@
+.toasts-wrapper {
+	@apply flex flex-col gap-2;
+}
+
+.alert {
+	@apply bg-gray-200 text-gray-800 relative items-center p-2 rounded-sm;
+}
+
+.alert--info {
+	@apply bg-blue-200 text-blue-800;
+}
+
+.alert--warning {
+	@apply bg-yellow-200 text-yellow-800;
+}
+
+.alert--success {
+	@apply bg-green-200 text-green-800;
+}
+
+.alert--danger {
+	@apply bg-red-200 text-red-800;
+}

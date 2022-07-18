@@ -1,12 +1,14 @@
 import { Link } from "@inertiajs/inertia-react";
+import * as dateFns from "date-fns";
+import { DataGrid } from "@/Components/DataGrid";
 import { FiIcon } from "@/Components/FiIcon";
+import { Empty } from "@/Components/Empty";
 import {
     Dropdown,
     DropdownButton,
     DropdownContent,
     DropdownItem,
 } from "@/Components/Dropdown";
-import { format } from "date-fns";
 
 const StatusCell = (value) => {
     return (
@@ -25,17 +27,13 @@ const StatusCell = (value) => {
 };
 
 const DateTimeCell = (value) => {
-    return <span>{format(new Date(value), "dd/MM/yyyy H:mm:ss")}</span>;
+    return <span>{dateFns.format(new Date(value), "dd/MM/yyyy H:mm:ss")}</span>;
 };
 
 const Actions = () => {
     return (
-        <Link
-            as="button"
-            href={route("stores.create")}
-            className="btn btn--primary"
-        >
-            <FiIcon as="FiPlusSquare" /> <span>Nova Loja</span>
+        <Link href={route("products.create")} className="btn btn--primary">
+            Novo Produto
         </Link>
     );
 };
@@ -47,13 +45,16 @@ const lineActions = (row) => {
                 <FiIcon as="FiMoreVertical" />
             </DropdownButton>
             <DropdownContent>
-                <DropdownItem href={route("stores.edit", row.id)} method="get">
+                <DropdownItem
+                    href={route("products.edit", row.id)}
+                    method="get"
+                >
                     Editar
                 </DropdownItem>
                 <DropdownItem
-                    as="button"
-                    href={route("stores.destroy", row.id)}
+                    href={route("products.destroy", row.id)}
                     method="delete"
+                    as="button"
                 >
                     Excluir
                 </DropdownItem>
@@ -65,9 +66,9 @@ const lineActions = (row) => {
 export const IndexViewModel = () => {
     const columns = [
         { accessor: "id", label: "#" },
-        { accessor: "name", label: "Loja" },
-        { accessor: "domain", label: "Dominio" },
-        { accessor: "class", label: "Classe" },
+        { accessor: "name", label: "Produto" },
+        { accessor: "url", label: "url" },
+        { accessor: "store", label: "Loja" },
         { accessor: "status", label: "Status", Cell: StatusCell },
         { accessor: "created_at", label: "Criado em", Cell: DateTimeCell },
     ];

@@ -1,6 +1,4 @@
-import { Link } from "@inertiajs/inertia-react";
 import { Page } from "@/Layouts/App";
-import { FiIcon } from "@/Components/FiIcon";
 import { IndexView } from "../views/IndexView";
 import { IndexViewModel } from "../views/IndexViewModel";
 

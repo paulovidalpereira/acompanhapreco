@@ -3,7 +3,7 @@ import { EditView } from "../views/EditView";
 import { ViewModel } from "../views/ViewModel";
 
 export const EditContainer = ({ store }) => {
-	const { data, errors, processing, onHandleSubmit, onHandleChange } =
+	const { data, errors, processing, onHandleChange, onHandleUpdateSubmit } =
 		ViewModel(store);
 
 	return (
@@ -12,8 +12,8 @@ export const EditContainer = ({ store }) => {
 				data={data}
 				errors={errors}
 				processing={processing}
-				onHandleSubmit={onHandleSubmit}
 				onHandleChange={onHandleChange}
+				onHandleSubmit={onHandleUpdateSubmit}
 			/>
 		</Page>
 	);

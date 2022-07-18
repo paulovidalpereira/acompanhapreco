@@ -1,18 +1,18 @@
 import { Page } from "@/Layouts/App";
 import { IndexView } from "../views/IndexView";
+import { IndexViewModel } from "../views/IndexViewModel";
 
-const Actions = () => {
-	return (
-		<button className="btn btn--primary" type="button">
-			Novo Produto
-		</button>
-	);
-};
+export const IndexContainer = ({ products }) => {
+	const { columns, lineActions, Actions } = IndexViewModel();
 
-export const IndexContainer = (props) => {
 	return (
 		<Page title="Gerenciar Produtos" Actions={Actions}>
-			<IndexView {...props} />
+			<IndexView
+				products={products}
+				columns={columns}
+				lineActions={lineActions}
+				Actions={Actions}
+			/>
 		</Page>
 	);
 };

@@ -1,14 +1,13 @@
 import React from "react";
-import Input from "@/Components/Input";
-import Label from "@/Components/Label";
-import Button from "@/Components/Button";
+import { Input, Label } from "@/Components/Form";
+import { Button } from "@/Components/Button";
 
 export const StoreForm = ({
     data,
     errors,
     processing,
-    handleSubmit,
     handleChange,
+    handleSubmit,
 }) => {
     return (
         <form onSubmit={handleSubmit}>

@@ -14,12 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Paulo',
             'email' => 'paulo@recurse.com.br',
             'password' => bcrypt('123456'),
+        ]);
+
+        \App\Models\Stores::factory()->create([
+            'id' => 1,
+            'name' => 'Kabum',
+            'domain' => 'kabum.com.br',
+            'class' => 'KabumScraper',
+            'status' => 1,
+        ]);
+
+        \App\Models\Products::factory()->create([
+            'store_id' => 1,
+            'name' => 'Teste',
+            'sku' => 'teste123',
+            'status' => 1,
         ]);
     }
 }

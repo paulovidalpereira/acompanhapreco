@@ -1,9 +1,7 @@
-import React from "react";
-import Input from "@/Components/Input";
-import Label from "@/Components/Label";
-import Button from "@/Components/Button";
+import { Input, Label } from "@/Components/Form";
+import { Button } from "@/Components/Button";
 
-export const Form = ({
+export const ProductForm = ({
     data,
     errors,
     processing,
@@ -45,10 +43,10 @@ export const Form = ({
                     name="store_id"
                     id="store_id"
                     className="form-input"
-                    value={data.store_id}
+                    value={data.store_id || ""}
                     onChange={handleChange}
                 >
-                    <option></option>
+                    <option value=""></option>
                     {sources.stores.map((store) => (
                         <option value={store.id} key={store.id}>
                             {store.name}

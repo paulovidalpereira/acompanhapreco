@@ -2,39 +2,15 @@ import React from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { BiIcon } from "@/Components/BiIcon";
 import { FiIcon } from "@/Components/FiIcon";
-import { Pagination } from "@/Components/Pagination";
+import { Pagination } from "@/Components/DataGrid";
 import Dropdown from "@/Components/Dropdown";
 
 export const DataGrid = ({ columns, page, lineActions, dataKey }) => {
     return (
         <>
             <div className="flex justify-between items-center">
-                <div>
-                    Página{" "}
-                    <Link
-                        href={page.prev_page_url}
-                        className="btn btn--small"
-                        disabled={page.current_page === 1}
-                        only={[dataKey]}
-                    >
-                        {"<"}
-                    </Link>{" "}
-                    {page.current_page}{" "}
-                    <Link
-                        href={page.next_page_url}
-                        className="btn btn--small"
-                        disabled={page.current_page === page.last_page}
-                        only={[dataKey]}
-                    >
-                        {">"}
-                    </Link>{" "}
-                    de {page.last_page} páginas
-                    {" | "}
-                    Exibir {"20"} por página
-                    {" | "}
-                    Total de {page.total} registros encontrados
-                </div>
-                <Pagination page={page} />
+                <div></div>
+                <Pagination page={page} dataKey={dataKey} />
             </div>
             <div className="-mx-4">
                 <table className="w-full">

@@ -25,7 +25,7 @@ class StoresController extends Controller
                     }, function ($query) {
                         $query->orderBy('created_at', 'desc');
                     })
-                    ->fastPaginate(10)
+                    ->fastPaginate(5)
                     ->withQueryString();
             }
         ]);

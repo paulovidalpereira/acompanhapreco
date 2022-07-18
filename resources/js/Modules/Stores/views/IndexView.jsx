@@ -1,9 +1,5 @@
-import { Link } from "@inertiajs/inertia-react";
-import { DataGrid } from "@/Components/DataGrid";
-import { FiIcon } from "@/Components/FiIcon";
 import { Empty } from "@/Components/Empty";
-import Dropdown from "@/Components/Dropdown";
-import * as dateFns from "date-fns";
+import { DataGrid } from "@/Components/DataGrid";
 
 export const IndexView = ({ stores, columns, lineActions }) => {
     return (
