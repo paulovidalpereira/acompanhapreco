@@ -22,6 +22,10 @@ mix.js("resources/js/main.jsx", "public/js")
         "@": "resources/js",
     });
 
+mix.browserSync({
+    proxy: "http://acompanhapreco.recurse.local",
+});
+
 if (mix.inProduction()) {
     mix.version();
 }
