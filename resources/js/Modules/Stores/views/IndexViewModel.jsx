@@ -25,7 +25,7 @@ const StatusCell = (value) => {
 };
 
 const DateTimeCell = (value) => {
-    return <span>{format(new Date(value), "dd/MM/yyyy H:mm:ss")}</span>;
+    return <span>{format(new Date(value), "dd/MM/yyyy HH:mm:ss")}</span>;
 };
 
 const Actions = () => {

@@ -5466,7 +5466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _views_CreateView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/CreateView */ "./resources/js/Modules/Products/views/CreateView.jsx");
-/* harmony import */ var _views_ViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/ViewModel */ "./resources/js/Modules/Products/views/ViewModel.jsx");
+/* harmony import */ var _views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/FormViewModel */ "./resources/js/Modules/Products/views/FormViewModel.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -5475,17 +5475,12 @@ __webpack_require__.r(__webpack_exports__);
 var CreateContainer = function CreateContainer(_ref) {
   var stores = _ref.stores;
 
-  var _ViewModel = (0,_views_ViewModel__WEBPACK_IMPORTED_MODULE_2__.ViewModel)({
-    name: "",
-    url: "",
-    store_id: "",
-    status: 0
-  }),
-      data = _ViewModel.data,
-      errors = _ViewModel.errors,
-      processing = _ViewModel.processing,
-      onHandleChange = _ViewModel.onHandleChange,
-      onHandleCreateSubmit = _ViewModel.onHandleCreateSubmit;
+  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)(),
+      data = _FormViewModel.data,
+      errors = _FormViewModel.errors,
+      processing = _FormViewModel.processing,
+      onHandleChange = _FormViewModel.onHandleChange,
+      onHandleCreateSubmit = _FormViewModel.onHandleCreateSubmit;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Novo Produto",
@@ -5515,7 +5510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/App */ "./resources/js/Layouts/App.jsx");
 /* harmony import */ var _views_EditView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/EditView */ "./resources/js/Modules/Products/views/EditView.jsx");
-/* harmony import */ var _views_ViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/ViewModel */ "./resources/js/Modules/Products/views/ViewModel.jsx");
+/* harmony import */ var _views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/FormViewModel */ "./resources/js/Modules/Products/views/FormViewModel.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -5525,12 +5520,12 @@ var EditContainer = function EditContainer(_ref) {
   var product = _ref.product,
       stores = _ref.stores;
 
-  var _ViewModel = (0,_views_ViewModel__WEBPACK_IMPORTED_MODULE_2__.ViewModel)(product),
-      data = _ViewModel.data,
-      errors = _ViewModel.errors,
-      processing = _ViewModel.processing,
-      onHandleChange = _ViewModel.onHandleChange,
-      onHandleUpdateSubmit = _ViewModel.onHandleUpdateSubmit;
+  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)(product),
+      data = _FormViewModel.data,
+      errors = _FormViewModel.errors,
+      processing = _FormViewModel.processing,
+      onHandleChange = _FormViewModel.onHandleChange,
+      onHandleUpdateSubmit = _FormViewModel.onHandleUpdateSubmit;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_0__.Page, {
     title: "Editar Produto",
@@ -5664,6 +5659,84 @@ var EditView = function EditView(_ref) {
       }
     })
   });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Modules/Products/views/FormViewModel.jsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/Modules/Products/views/FormViewModel.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FormViewModel": () => (/* binding */ FormViewModel)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var FormViewModel = function FormViewModel(product) {
+  var INITIAL_STATE = _objectSpread({
+    name: "",
+    url: "",
+    store_id: "",
+    status: 0
+  }, product);
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)(INITIAL_STATE),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      put = _useForm.put,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  var onHandleChange = function onHandleChange(e) {
+    setData(function (values) {
+      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.type === "checkbox" ? e.target.checked : e.target.value));
+    });
+  };
+
+  var onHandleUpdateSubmit = function onHandleUpdateSubmit(e) {
+    e.preventDefault();
+    put(route("products.update", INITIAL_STATE.id), {
+      data: data,
+      onSuccess: function onSuccess() {
+        console.log("updated");
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success("Produto atualizado com sucesso.");
+      }
+    });
+  };
+
+  var onHandleCreateSubmit = function onHandleCreateSubmit(e) {
+    e.preventDefault();
+    post(route("products.store"), {
+      data: data,
+      onSuccess: function onSuccess() {
+        console.log("created");
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success("Produto criado com sucesso.");
+      }
+    });
+  };
+
+  return {
+    data: data,
+    setData: setData,
+    processing: processing,
+    errors: errors,
+    onHandleChange: onHandleChange,
+    onHandleUpdateSubmit: onHandleUpdateSubmit,
+    onHandleCreateSubmit: onHandleCreateSubmit
+  };
 };
 
 /***/ }),
@@ -5808,75 +5881,6 @@ var IndexViewModel = function IndexViewModel() {
 
 /***/ }),
 
-/***/ "./resources/js/Modules/Products/views/ViewModel.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/Modules/Products/views/ViewModel.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ViewModel": () => (/* binding */ ViewModel)
-/* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-var ViewModel = function ViewModel(INITIAL_STATE) {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)(INITIAL_STATE),
-      data = _useForm.data,
-      setData = _useForm.setData,
-      processing = _useForm.processing,
-      errors = _useForm.errors;
-
-  var onHandleChange = function onHandleChange(e) {
-    setData(function (values) {
-      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.type === "checkbox" ? e.target.checked : e.target.value));
-    });
-  };
-
-  var onHandleUpdateSubmit = function onHandleUpdateSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.put(route("products.update", INITIAL_STATE.id), data, {
-      onSuccess: function onSuccess() {
-        console.log("updated");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Produto atualizado com sucesso.");
-      }
-    });
-  };
-
-  var onHandleCreateSubmit = function onHandleCreateSubmit(e) {
-    e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("products.store"), data, {
-      onSuccess: function onSuccess() {
-        console.log("created");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Produto criado com sucesso.");
-      }
-    });
-  };
-
-  return {
-    data: data,
-    setData: setData,
-    processing: processing,
-    errors: errors,
-    onHandleChange: onHandleChange,
-    onHandleUpdateSubmit: onHandleUpdateSubmit,
-    onHandleCreateSubmit: onHandleCreateSubmit
-  };
-};
-
-/***/ }),
-
 /***/ "./resources/js/Modules/Stores/components/StoreForm.jsx":
 /*!**************************************************************!*\
   !*** ./resources/js/Modules/Stores/components/StoreForm.jsx ***!
@@ -6002,13 +6006,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var CreateContainer = function CreateContainer(props) {
-  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)({
-    name: "",
-    domain: "",
-    "class": "",
-    status: 0
-  }),
+var CreateContainer = function CreateContainer() {
+  var _FormViewModel = (0,_views_FormViewModel__WEBPACK_IMPORTED_MODULE_2__.FormViewModel)(),
       data = _FormViewModel.data,
       errors = _FormViewModel.errors,
       processing = _FormViewModel.processing,
@@ -6188,9 +6187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FormViewModel": () => (/* binding */ FormViewModel)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.mjs");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6199,11 +6197,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var FormViewModel = function FormViewModel(store) {
+  var INITIAL_STATE = _objectSpread({
+    name: "",
+    domain: "",
+    "class": "",
+    status: 0
+  }, store);
 
-var FormViewModel = function FormViewModel(INITIAL_STATE) {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)(INITIAL_STATE),
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)(INITIAL_STATE),
       data = _useForm.data,
       setData = _useForm.setData,
+      post = _useForm.post,
+      put = _useForm.put,
       processing = _useForm.processing,
       errors = _useForm.errors;
 
@@ -6215,10 +6221,11 @@ var FormViewModel = function FormViewModel(INITIAL_STATE) {
 
   var onHandleUpdateSubmit = function onHandleUpdateSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.put(route("stores.update", INITIAL_STATE.id), data, {
+    put(route("stores.update", INITIAL_STATE.id), {
+      data: data,
       onSuccess: function onSuccess() {
         console.log("updated");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja atualizada com sucesso.");
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success("Loja atualizada com sucesso.");
       },
       only: ["stores"]
     });
@@ -6226,10 +6233,11 @@ var FormViewModel = function FormViewModel(INITIAL_STATE) {
 
   var onHandleCreateSubmit = function onHandleCreateSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("stores.store"), data, {
+    post(route("stores.store"), {
+      data: data,
       onSuccess: function onSuccess() {
         console.log("created");
-        react_toastify__WEBPACK_IMPORTED_MODULE_2__.toast.success("Loja criada com sucesso.");
+        react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast.success("Loja criada com sucesso.");
       },
       only: ["stores"]
     });
@@ -6320,7 +6328,7 @@ var StatusCell = function StatusCell(value) {
 
 var DateTimeCell = function DateTimeCell(value) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-    children: (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(value), "dd/MM/yyyy H:mm:ss")
+    children: (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(value), "dd/MM/yyyy HH:mm:ss")
   });
 };
 

@@ -1,10 +1,10 @@
 import { Page } from "@/Layouts/App";
 import { CreateView } from "../views/CreateView";
-import { ViewModel } from "../views/ViewModel";
+import { FormViewModel } from "../views/FormViewModel";
 
 export const CreateContainer = ({ stores }) => {
 	const { data, errors, processing, onHandleChange, onHandleCreateSubmit } =
-		ViewModel({ name: "", url: "", store_id: "", status: 0 });
+		FormViewModel();
 
 	return (
 		<Page title="Novo Produto">

@@ -1,9 +1,17 @@
-import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
 
-export const FormViewModel = (INITIAL_STATE) => {
-    const { data, setData, processing, errors } = useForm(INITIAL_STATE);
+export const FormViewModel = (store) => {
+    const INITIAL_STATE = {
+        name: "",
+        domain: "",
+        class: "",
+        status: 0,
+        ...store,
+    };
+
+    const { data, setData, post, put, processing, errors } =
+        useForm(INITIAL_STATE);
 
     const onHandleChange = (e) => {
         setData((values) => ({
@@ -17,7 +25,8 @@ export const FormViewModel = (INITIAL_STATE) => {
 
     const onHandleUpdateSubmit = (e) => {
         e.preventDefault();
-        Inertia.put(route("stores.update", INITIAL_STATE.id), data, {
+        put(route("stores.update", INITIAL_STATE.id), {
+            data,
             onSuccess: () => {
                 console.log("updated");
                 toast.success("Loja atualizada com sucesso.");
@@ -28,7 +37,8 @@ export const FormViewModel = (INITIAL_STATE) => {
 
     const onHandleCreateSubmit = (e) => {
         e.preventDefault();
-        Inertia.post(route("stores.store"), data, {
+        post(route("stores.store"), {
+            data,
             onSuccess: () => {
                 console.log("created");
                 toast.success("Loja criada com sucesso.");
