@@ -12,7 +12,7 @@ export const Dropdown = ({ label, children }) => {
 };
 
 export const DropdownButton = ({ children }) => {
-    return <Menu.Button className="btn">{children}</Menu.Button>;
+    return <Menu.Button className="btn btn--small">{children}</Menu.Button>;
 };
 
 export const DropdownContent = ({ children }) => {

@@ -4517,6 +4517,7 @@ var Pagination = function Pagination(_ref) {
   var links = page.links;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: ["P\xE1gina", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+      as: "button",
       href: page.prev_page_url,
       className: "btn btn--small",
       disabled: page.current_page === 1,
@@ -4525,6 +4526,7 @@ var Pagination = function Pagination(_ref) {
         as: "FiChevronLeft"
       })
     }), " ", page.current_page, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+      as: "button",
       href: page.next_page_url,
       className: "btn btn--small",
       disabled: page.current_page === page.last_page,
@@ -4591,7 +4593,7 @@ var Dropdown = function Dropdown(_ref) {
 var DropdownButton = function DropdownButton(_ref2) {
   var children = _ref2.children;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Menu.Button, {
-    className: "btn",
+    className: "btn btn--small",
     children: children
   });
 };

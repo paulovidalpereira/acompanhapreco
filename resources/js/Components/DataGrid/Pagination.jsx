@@ -8,6 +8,7 @@ export const Pagination = ({ page, dataKey, perPage = 20 }) => {
         <div>
             Página{" "}
             <Link
+                as="button"
                 href={page.prev_page_url}
                 className="btn btn--small"
                 disabled={page.current_page === 1}
@@ -17,6 +18,7 @@ export const Pagination = ({ page, dataKey, perPage = 20 }) => {
             </Link>{" "}
             {page.current_page}{" "}
             <Link
+                as="button"
                 href={page.next_page_url}
                 className="btn btn--small"
                 disabled={page.current_page === page.last_page}
