@@ -4372,13 +4372,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DataGrid": () => (/* binding */ DataGrid)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/BiIcon */ "./resources/js/Components/BiIcon.jsx");
-/* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
-/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid/index.jsx");
-/* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_BiIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/BiIcon */ "./resources/js/Components/BiIcon.jsx");
+/* harmony import */ var _Components_FiIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FiIcon */ "./resources/js/Components/FiIcon.jsx");
+/* harmony import */ var _Components_DataGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/DataGrid */ "./resources/js/Components/DataGrid/index.jsx");
+/* harmony import */ var _Components_Dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Dropdown */ "./resources/js/Components/Dropdown/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -4388,96 +4387,91 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var DataGrid = function DataGrid(_ref) {
-  var columns = _ref.columns,
-      page = _ref.page,
-      lineActions = _ref.lineActions,
-      dataKey = _ref.dataKey;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+var SortButton = function SortButton(_ref) {
+  var accessor = _ref.accessor,
+      direction = _ref.direction,
+      icon = _ref.icon,
+      dataKey = _ref.dataKey,
+      routeName = _ref.routeName;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+    href: route(routeName),
+    data: {
+      sort: accessor,
+      dir: direction
+    },
+    only: [dataKey],
+    preserveState: true,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_1__.BiIcon, {
+      as: icon,
+      style: {
+        width: "16px",
+        height: "16px"
+      }
+    })
+  });
+};
+
+var DataGrid = function DataGrid(_ref2) {
+  var columns = _ref2.columns,
+      page = _ref2.page,
+      lineActions = _ref2.lineActions,
+      dataKey = _ref2.dataKey,
+      routeName = _ref2.routeName;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "flex justify-between items-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_4__.Pagination, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_3__.Pagination, {
         page: page,
         dataKey: dataKey
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "-mx-4",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("table", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("table", {
         className: "w-full",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("thead", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
             children: [columns.map(function (col) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("td", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                   children: col.label
-                }), route().params.sort === col.accessor && route().params.dir === "asc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                  className: "btn btn--small",
-                  href: route("stores.index"),
-                  data: {
-                    sort: col.accessor,
-                    dir: "desc"
-                  },
-                  only: [dataKey],
-                  preserveState: true,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
-                    as: "BiSortDown",
-                    style: {
-                      width: "16px",
-                      height: "16px"
-                    }
-                  })
-                }), route().params.sort === col.accessor && route().params.dir === "desc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                  className: "btn btn--small",
-                  href: route("stores.index"),
-                  data: {
-                    sort: col.accessor,
-                    dir: "asc"
-                  },
-                  only: [dataKey],
-                  preserveState: true,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
-                    as: "BiSortUp",
-                    style: {
-                      width: "16px",
-                      height: "16px"
-                    }
-                  })
-                }), route().params.sort !== col.accessor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                  className: "btn btn--small",
-                  href: route("stores.index"),
-                  data: {
-                    sort: col.accessor,
-                    dir: "asc"
-                  },
-                  only: [dataKey],
-                  preserveState: true,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_2__.BiIcon, {
-                    as: "BiSort",
-                    style: {
-                      width: "16px",
-                      height: "16px"
-                    }
-                  })
+                }), route().params.sort === col.accessor && route().params.dir === "asc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                  accessor: col.accessor,
+                  direction: "desc",
+                  icon: "BiSortDown",
+                  dataKey: dataKey,
+                  routeName: routeName
+                }), route().params.sort === col.accessor && route().params.dir === "desc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                  accessor: col.accessor,
+                  direction: "asc",
+                  icon: "BiSortUp",
+                  dataKey: dataKey,
+                  routeName: routeName
+                }), route().params.sort !== col.accessor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                  accessor: col.accessor,
+                  direction: "asc",
+                  icon: "BiSort",
+                  dataKey: dataKey,
+                  routeName: routeName
                 })]
               }, col.accessor);
-            }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+            }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
               className: "actions"
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("tbody", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("tbody", {
           children: page.data.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
               children: [columns.map(function (col) {
                 if (col.Cell) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                     children: col.Cell(item[col.accessor])
                   }, col.accessor);
                 }
 
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                   children: item[col.accessor]
                 }, col.accessor);
-              }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
+              }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
                 className: "actions",
                 children: lineActions(item)
               })]
@@ -4909,6 +4903,58 @@ var Label = function Label(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/Form/Textarea.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/Components/Form/Textarea.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Textarea": () => (/* binding */ Textarea)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var Textarea = function Textarea(_ref) {
+  var _ref$type = _ref.type,
+      type = _ref$type === void 0 ? "text" : _ref$type,
+      name = _ref.name,
+      id = _ref.id,
+      value = _ref.value,
+      className = _ref.className,
+      autoComplete = _ref.autoComplete,
+      required = _ref.required,
+      isFocused = _ref.isFocused,
+      handleChange = _ref.handleChange;
+  var input = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isFocused) {
+      input.current.focus();
+    }
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "flex flex-col items-start",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+      type: type,
+      name: name,
+      id: id,
+      value: value,
+      className: "form-input " + className,
+      ref: input,
+      autoComplete: autoComplete,
+      required: required,
+      onChange: function onChange(e) {
+        return handleChange(e);
+      }
+    })
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/Components/Form/index.jsx":
 /*!************************************************!*\
   !*** ./resources/js/Components/Form/index.jsx ***!
@@ -4920,11 +4966,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Checkbox": () => (/* reexport safe */ _Checkbox__WEBPACK_IMPORTED_MODULE_0__.Checkbox),
 /* harmony export */   "Input": () => (/* reexport safe */ _Input__WEBPACK_IMPORTED_MODULE_1__.Input),
-/* harmony export */   "Label": () => (/* reexport safe */ _Label__WEBPACK_IMPORTED_MODULE_2__.Label)
+/* harmony export */   "Label": () => (/* reexport safe */ _Label__WEBPACK_IMPORTED_MODULE_3__.Label),
+/* harmony export */   "Textarea": () => (/* reexport safe */ _Textarea__WEBPACK_IMPORTED_MODULE_2__.Textarea)
 /* harmony export */ });
 /* harmony import */ var _Checkbox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox */ "./resources/js/Components/Form/Checkbox.jsx");
 /* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Input */ "./resources/js/Components/Form/Input.jsx");
-/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Label */ "./resources/js/Components/Form/Label.jsx");
+/* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Textarea */ "./resources/js/Components/Form/Textarea.jsx");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Label */ "./resources/js/Components/Form/Label.jsx");
+
 
 
 
@@ -5360,12 +5409,24 @@ var ProductForm = function ProductForm(_ref) {
       handleSubmit = _ref.handleSubmit,
       handleChange = _ref.handleChange,
       sources = _ref.sources;
-  console.log({
-    errors: errors
-  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
     onSubmit: handleSubmit,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-field",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Label, {
+        forInput: "url",
+        children: "URL:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        name: "url",
+        id: "url",
+        value: data.url,
+        handleChange: handleChange
+      }), errors.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "text-red-500 text-sm",
+        children: errors.url
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "form-field",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Label, {
         forInput: "name",
@@ -5383,17 +5444,32 @@ var ProductForm = function ProductForm(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "form-field",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Label, {
-        forInput: "url",
-        children: "URL:"
+        forInput: "sku",
+        children: "SKU:"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Input, {
         type: "text",
-        name: "url",
-        id: "url",
-        value: data.url,
+        name: "sku",
+        id: "sku",
+        value: data.sku,
         handleChange: handleChange
-      }), errors.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), errors.sku && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-red-500 text-sm",
-        children: errors.url
+        children: errors.sku
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "form-field",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Form__WEBPACK_IMPORTED_MODULE_0__.Label, {
+        forInput: "description",
+        children: "Descri\xE7\xE3o:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+        type: "text",
+        name: "description",
+        id: "description",
+        value: data.description,
+        handleChange: handleChange
+      }), errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "text-red-500 text-sm",
+        children: errors.description
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "form-field",
@@ -6282,7 +6358,8 @@ var IndexView = function IndexView(_ref) {
       columns: columns,
       page: stores,
       lineActions: lineActions,
-      dataKey: "stores"
+      dataKey: "stores",
+      routeName: "stores.index"
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Empty__WEBPACK_IMPORTED_MODULE_0__.Empty, {
       children: "Nenhuma loja cadastrada"
     })
@@ -6379,6 +6456,9 @@ var IndexViewModel = function IndexViewModel() {
   }, {
     accessor: "class",
     label: "Classe"
+  }, {
+    accessor: "products_count",
+    label: "Produtos"
   }, {
     accessor: "status",
     label: "Status",
@@ -7030,11 +7110,7 @@ var Dashboard = function Dashboard(props) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_1__.Page, {
-    title: "Dashboard 123",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      onClick: notify,
-      children: "Notify !"
-    })
+    title: "Dashboard"
   });
 };
 

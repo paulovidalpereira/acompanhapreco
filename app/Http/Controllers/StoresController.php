@@ -20,13 +20,25 @@ class StoresController extends Controller
         return Inertia::render('Stores/Index', [
             'stores' => function () {
                 return Store::query()
+                    ->withCount('products')
                     ->when(request()->has(['sort', 'dir']), function ($query) {
                         $query->orderBy(request()->get('sort'), request()->get('dir'));
                     }, function ($query) {
                         $query->orderBy('created_at', 'desc');
                     })
                     ->fastPaginate(5)
-                    ->withQueryString();
+                    ->withQueryString()
+                    ->through(function ($store) {
+                        return [
+                            'id' => $store->id,
+                            'name' => $store->name,
+                            'domain' => $store->domain,
+                            'class' => $store->class,
+                            'products_count' => $store->products_count,
+                            'status' => $store->status,
+                            'created_at' => $store->created_at,
+                        ];
+                    });
             }
         ]);
     }

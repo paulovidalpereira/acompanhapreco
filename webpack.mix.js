@@ -23,8 +23,8 @@ mix.js("resources/js/main.jsx", "public/js")
     });
 
 mix.browserSync({
-    cors: true,
     proxy: "http://acompanhapreco.recurse.local",
+    open: false,
 });
 
 if (mix.inProduction()) {

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductStoreRequest extends FormRequest
 {
@@ -27,7 +28,7 @@ class ProductStoreRequest extends FormRequest
             'name' => 'required',
             'url' => 'required',
             'store_id' => 'required',
-            'status' => 'required',
+            'status' => ['required', Rule::in([0, 1])],
         ];
     }
 }

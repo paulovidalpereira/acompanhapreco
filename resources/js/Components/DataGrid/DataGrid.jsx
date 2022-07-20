@@ -1,11 +1,38 @@
-import React from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 import { BiIcon } from "@/Components/BiIcon";
 import { FiIcon } from "@/Components/FiIcon";
 import { Pagination } from "@/Components/DataGrid";
 import Dropdown from "@/Components/Dropdown";
 
-export const DataGrid = ({ columns, page, lineActions, dataKey }) => {
+const SortButton = ({ accessor, direction, icon, dataKey, routeName }) => {
+    return (
+        <Link
+            href={route(routeName)}
+            data={{
+                sort: accessor,
+                dir: direction,
+            }}
+            only={[dataKey]}
+            preserveState
+        >
+            <BiIcon
+                as={icon}
+                style={{
+                    width: "16px",
+                    height: "16px",
+                }}
+            />
+        </Link>
+    );
+};
+
+export const DataGrid = ({
+    columns,
+    page,
+    lineActions,
+    dataKey,
+    routeName,
+}) => {
     return (
         <>
             <div className="flex justify-between items-center">
@@ -21,65 +48,32 @@ export const DataGrid = ({ columns, page, lineActions, dataKey }) => {
                                     <span>{col.label}</span>
                                     {route().params.sort === col.accessor &&
                                         route().params.dir === "asc" && (
-                                            <Link
-                                                className="btn btn--small"
-                                                href={route("stores.index")}
-                                                data={{
-                                                    sort: col.accessor,
-                                                    dir: "desc",
-                                                }}
-                                                only={[dataKey]}
-                                                preserveState
-                                            >
-                                                <BiIcon
-                                                    as="BiSortDown"
-                                                    style={{
-                                                        width: "16px",
-                                                        height: "16px",
-                                                    }}
-                                                />
-                                            </Link>
+                                            <SortButton
+                                                accessor={col.accessor}
+                                                direction={"desc"}
+                                                icon={"BiSortDown"}
+                                                dataKey={dataKey}
+                                                routeName={routeName}
+                                            />
                                         )}
                                     {route().params.sort === col.accessor &&
                                         route().params.dir === "desc" && (
-                                            <Link
-                                                className="btn btn--small"
-                                                href={route("stores.index")}
-                                                data={{
-                                                    sort: col.accessor,
-                                                    dir: "asc",
-                                                }}
-                                                only={[dataKey]}
-                                                preserveState
-                                            >
-                                                <BiIcon
-                                                    as="BiSortUp"
-                                                    style={{
-                                                        width: "16px",
-                                                        height: "16px",
-                                                    }}
-                                                />
-                                            </Link>
+                                            <SortButton
+                                                accessor={col.accessor}
+                                                direction={"asc"}
+                                                icon={"BiSortUp"}
+                                                dataKey={dataKey}
+                                                routeName={routeName}
+                                            />
                                         )}
                                     {route().params.sort !== col.accessor && (
-                                        <Link
-                                            className="btn btn--small"
-                                            href={route("stores.index")}
-                                            data={{
-                                                sort: col.accessor,
-                                                dir: "asc",
-                                            }}
-                                            only={[dataKey]}
-                                            preserveState
-                                        >
-                                            <BiIcon
-                                                as="BiSort"
-                                                style={{
-                                                    width: "16px",
-                                                    height: "16px",
-                                                }}
-                                            />
-                                        </Link>
+                                        <SortButton
+                                            accessor={col.accessor}
+                                            direction={"asc"}
+                                            icon={"BiSort"}
+                                            dataKey={dataKey}
+                                            routeName={routeName}
+                                        />
                                     )}
                                 </td>
                             ))}

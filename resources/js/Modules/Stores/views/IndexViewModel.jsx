@@ -68,6 +68,7 @@ export const IndexViewModel = () => {
         { accessor: "name", label: "Loja" },
         { accessor: "domain", label: "Dominio" },
         { accessor: "class", label: "Classe" },
+        { accessor: "products_count", label: "Produtos" },
         { accessor: "status", label: "Status", Cell: StatusCell },
         { accessor: "created_at", label: "Criado em", Cell: DateTimeCell },
     ];

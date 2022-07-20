@@ -9,9 +9,21 @@ export const ProductForm = ({
     handleChange,
     sources,
 }) => {
-    console.log({ errors });
     return (
         <form onSubmit={handleSubmit}>
+            <div className="form-field">
+                <Label forInput="url">URL:</Label>
+                <Input
+                    type="text"
+                    name="url"
+                    id="url"
+                    value={data.url}
+                    handleChange={handleChange}
+                />
+                {errors.url && (
+                    <div className="text-red-500 text-sm">{errors.url}</div>
+                )}
+            </div>
             <div className="form-field">
                 <Label forInput="name">Produto:</Label>
                 <Input
@@ -26,16 +38,31 @@ export const ProductForm = ({
                 )}
             </div>
             <div className="form-field">
-                <Label forInput="url">URL:</Label>
+                <Label forInput="sku">SKU:</Label>
                 <Input
                     type="text"
-                    name="url"
-                    id="url"
-                    value={data.url}
+                    name="sku"
+                    id="sku"
+                    value={data.sku}
                     handleChange={handleChange}
                 />
-                {errors.url && (
-                    <div className="text-red-500 text-sm">{errors.url}</div>
+                {errors.sku && (
+                    <div className="text-red-500 text-sm">{errors.sku}</div>
+                )}
+            </div>
+            <div className="form-field">
+                <Label forInput="description">Descrição:</Label>
+                <textarea
+                    type="text"
+                    name="description"
+                    id="description"
+                    value={data.description}
+                    handleChange={handleChange}
+                />
+                {errors.description && (
+                    <div className="text-red-500 text-sm">
+                        {errors.description}
+                    </div>
                 )}
             </div>
             <div className="form-field">

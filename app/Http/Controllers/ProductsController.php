@@ -26,7 +26,8 @@ class ProductsController extends Controller
                     }, function ($query) {
                         $query->orderBy('created_at', 'desc');
                     })
-                    ->fastPaginate()
+                    ->fastPaginate(5)
+                    ->withQueryString()
                     ->through(function ($product) {
                         return [
                             'id' => $product->id,
@@ -43,7 +44,7 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $stores = Store::all()->transform(function ($store) {
+        $stores = Store::where('status', 1)->get()->transform(function ($store) {
             return [
                 'id' => $store->id,
                 'name' => $store->name,
@@ -66,7 +67,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $stores = Store::all()->transform(function ($store) {
+        $stores = Store::where('status', 1)->get()->transform(function ($store) {
             return [
                 'id' => $store->id,
                 'name' => $store->name,

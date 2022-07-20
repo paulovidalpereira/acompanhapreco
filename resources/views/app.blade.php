@@ -11,8 +11,5 @@
     </head>
     <body class="font-sans antialiased text-gray-600">
         @inertia
-        @env ('local')
-            <script src="{{ url('js/bundle.js') }}"></script>
-        @endenv
     </body>
 </html>

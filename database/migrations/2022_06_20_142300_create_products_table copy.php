@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Store::class);
             $table->string('name')->nullable();
             $table->string('sku')->nullable();
+            $table->string('description')->nullable();
             $table->unsignedSmallInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
