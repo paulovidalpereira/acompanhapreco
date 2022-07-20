@@ -4404,8 +4404,8 @@ var SortButton = function SortButton(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_BiIcon__WEBPACK_IMPORTED_MODULE_1__.BiIcon, {
       as: icon,
       style: {
-        width: "16px",
-        height: "16px"
+        width: "14px",
+        height: "14px"
       }
     })
   });
@@ -4419,7 +4419,7 @@ var DataGrid = function DataGrid(_ref2) {
       routeName = _ref2.routeName;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "flex justify-between items-center",
+      className: "border-b border-gray-200 flex justify-between items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_DataGrid__WEBPACK_IMPORTED_MODULE_3__.Pagination, {
         page: page,
         dataKey: dataKey
@@ -4431,30 +4431,33 @@ var DataGrid = function DataGrid(_ref2) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("thead", {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("tr", {
             children: [columns.map(function (col) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("td", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                  children: col.label
-                }), route().params.sort === col.accessor && route().params.dir === "asc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
-                  accessor: col.accessor,
-                  direction: "desc",
-                  icon: "BiSortDown",
-                  dataKey: dataKey,
-                  routeName: routeName
-                }), route().params.sort === col.accessor && route().params.dir === "desc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
-                  accessor: col.accessor,
-                  direction: "asc",
-                  icon: "BiSortUp",
-                  dataKey: dataKey,
-                  routeName: routeName
-                }), route().params.sort !== col.accessor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
-                  accessor: col.accessor,
-                  direction: "asc",
-                  icon: "BiSort",
-                  dataKey: dataKey,
-                  routeName: routeName
-                })]
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  className: "flex justify-between",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                    children: col.label
+                  }), route().params.sort === col.accessor && route().params.dir === "asc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                    accessor: col.accessor,
+                    direction: "desc",
+                    icon: "BiSortDown",
+                    dataKey: dataKey,
+                    routeName: routeName
+                  }), route().params.sort === col.accessor && route().params.dir === "desc" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                    accessor: col.accessor,
+                    direction: "asc",
+                    icon: "BiSortUp",
+                    dataKey: dataKey,
+                    routeName: routeName
+                  }), route().params.sort !== col.accessor && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SortButton, {
+                    accessor: col.accessor,
+                    direction: "asc",
+                    icon: "BiSort",
+                    dataKey: dataKey,
+                    routeName: routeName
+                  })]
+                })
               }, col.accessor);
-            }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("td", {
+            }), lineActions && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("th", {
               className: "actions"
             })]
           })

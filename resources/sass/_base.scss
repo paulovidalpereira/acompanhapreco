@@ -6,7 +6,7 @@ table {
     @apply w-full whitespace-nowrap;
 
     th {
-        @apply bg-gray-200 font-medium;
+        @apply font-medium;
     }
 
     td {
@@ -15,7 +15,7 @@ table {
 
     th,
     td {
-        @apply text-left border-b border-slate-100 py-1 px-3;
+        @apply text-left border-b border-gray-200 py-1 px-3;
     }
 
     tbody tr {

@@ -18,8 +18,8 @@ const SortButton = ({ accessor, direction, icon, dataKey, routeName }) => {
             <BiIcon
                 as={icon}
                 style={{
-                    width: "16px",
-                    height: "16px",
+                    width: "14px",
+                    height: "14px",
                 }}
             />
         </Link>
@@ -35,7 +35,7 @@ export const DataGrid = ({
 }) => {
     return (
         <>
-            <div className="flex justify-between items-center">
+            <div className="border-b border-gray-200 flex justify-between items-center">
                 <div></div>
                 <Pagination page={page} dataKey={dataKey} />
             </div>
@@ -44,40 +44,43 @@ export const DataGrid = ({
                     <thead>
                         <tr>
                             {columns.map((col) => (
-                                <td key={col.accessor}>
-                                    <span>{col.label}</span>
-                                    {route().params.sort === col.accessor &&
-                                        route().params.dir === "asc" && (
-                                            <SortButton
-                                                accessor={col.accessor}
-                                                direction={"desc"}
-                                                icon={"BiSortDown"}
-                                                dataKey={dataKey}
-                                                routeName={routeName}
-                                            />
-                                        )}
-                                    {route().params.sort === col.accessor &&
-                                        route().params.dir === "desc" && (
+                                <th key={col.accessor}>
+                                    <div className="flex justify-between">
+                                        <span>{col.label}</span>
+                                        {route().params.sort === col.accessor &&
+                                            route().params.dir === "asc" && (
+                                                <SortButton
+                                                    accessor={col.accessor}
+                                                    direction={"desc"}
+                                                    icon={"BiSortDown"}
+                                                    dataKey={dataKey}
+                                                    routeName={routeName}
+                                                />
+                                            )}
+                                        {route().params.sort === col.accessor &&
+                                            route().params.dir === "desc" && (
+                                                <SortButton
+                                                    accessor={col.accessor}
+                                                    direction={"asc"}
+                                                    icon={"BiSortUp"}
+                                                    dataKey={dataKey}
+                                                    routeName={routeName}
+                                                />
+                                            )}
+                                        {route().params.sort !==
+                                            col.accessor && (
                                             <SortButton
                                                 accessor={col.accessor}
                                                 direction={"asc"}
-                                                icon={"BiSortUp"}
+                                                icon={"BiSort"}
                                                 dataKey={dataKey}
                                                 routeName={routeName}
                                             />
                                         )}
-                                    {route().params.sort !== col.accessor && (
-                                        <SortButton
-                                            accessor={col.accessor}
-                                            direction={"asc"}
-                                            icon={"BiSort"}
-                                            dataKey={dataKey}
-                                            routeName={routeName}
-                                        />
-                                    )}
-                                </td>
+                                    </div>
+                                </th>
                             ))}
-                            {lineActions && <td className="actions"></td>}
+                            {lineActions && <th className="actions"></th>}
                         </tr>
                     </thead>
                     <tbody>
