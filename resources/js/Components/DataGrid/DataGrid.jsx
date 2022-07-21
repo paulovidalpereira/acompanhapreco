@@ -4,26 +4,38 @@ import { FiIcon } from "@/Components/FiIcon";
 import { Pagination } from "@/Components/DataGrid";
 import Dropdown from "@/Components/Dropdown";
 
-const SortButton = ({ accessor, direction, icon, dataKey, routeName }) => {
-    return (
-        <Link
-            href={route(routeName)}
-            data={{
-                sort: accessor,
-                dir: direction,
-            }}
-            only={[dataKey]}
-            preserveState
-        >
-            <BiIcon
-                as={icon}
-                style={{
-                    width: "14px",
-                    height: "14px",
-                }}
-            />
-        </Link>
-    );
+const SortButton = ({ accessor, sort, dir, dataKey, urlPath }) => {
+    const direction =
+        sort === accessor ? (dir === "asc" ? "desc" : "asc") : "asc";
+
+    const icon =
+        sort === accessor
+            ? dir === "asc"
+                ? "BiSortDown"
+                : "BiSortUp"
+            : "BiSort";
+
+    return {sort === accessor && (
+            <>
+                <Link
+                    href={urlPath}
+                    data={{
+                        sort,
+                        dir: direction,
+                    }}
+                    only={[dataKey]}
+                    preserveState
+                >
+                    <BiIcon
+                        as={icon}
+                        style={{
+                            width: "14px",
+                            height: "14px",
+                        }}
+                    />
+                </Link>
+            </>
+        )};
 };
 
 export const DataGrid = ({
@@ -47,36 +59,13 @@ export const DataGrid = ({
                                 <th key={col.accessor}>
                                     <div className="flex justify-between">
                                         <span>{col.label}</span>
-                                        {route().params.sort === col.accessor &&
-                                            route().params.dir === "asc" && (
-                                                <SortButton
-                                                    accessor={col.accessor}
-                                                    direction={"desc"}
-                                                    icon={"BiSortDown"}
-                                                    dataKey={dataKey}
-                                                    routeName={routeName}
-                                                />
-                                            )}
-                                        {route().params.sort === col.accessor &&
-                                            route().params.dir === "desc" && (
-                                                <SortButton
-                                                    accessor={col.accessor}
-                                                    direction={"asc"}
-                                                    icon={"BiSortUp"}
-                                                    dataKey={dataKey}
-                                                    routeName={routeName}
-                                                />
-                                            )}
-                                        {route().params.sort !==
-                                            col.accessor && (
-                                            <SortButton
-                                                accessor={col.accessor}
-                                                direction={"asc"}
-                                                icon={"BiSort"}
-                                                dataKey={dataKey}
-                                                routeName={routeName}
-                                            />
-                                        )}
+                                        <SortButton
+                                            accessor={col.accessor}
+                                            sort={route().params.sort}
+                                            dir={route().params.dir}
+                                            dataKey={dataKey}
+                                            urlPath={page.path}
+                                        />
                                     </div>
                                 </th>
                             ))}
